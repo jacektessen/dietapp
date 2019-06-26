@@ -1,0 +1,82 @@
+body {
+    background-color: rgb(227, 251, 145);
+    color: #efefef;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 400;
+    color: #91a33b;
+    margin: 20px;
+}
+
+header h1 {
+    color: #91a33b;
+    margin-left: 30px;
+    margin-top: 70px;
+    font-size: 50px;
+}
+
+header p {
+    color: red;
+}
+
+.10 {
+    margin: 0 auto;
+    padding: 0;
+}
+
+.home {
+    text-align: center;
+}
+
+.home p {
+    margin-bottom: 30px;
+}
+
+.home figcaption {
+    margin-top: 8px;
+}
+
+.navbar {
+    min-height: 57px;
+}
+
+.bg-jumpers
+/* przypisujemy to jako tło navbaru i zastępuje nam wcześniejsze bg-primary */
+
+{
+    background-color: #91a33b !important;
+}
+
+.recipe {
+    color: #91a33b;
+    font-size: 25px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-fluid {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/*
+.bmi_tabela {
+    border: 2px solid black;
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+}
+*/

@@ -1,0 +1,49 @@
+
+{% extends "base.html" %} 
+{% load static %}
+
+
+{%  block content %}
+
+<main>		
+    <section class="home">			
+        <div class="container">		
+        
+            <header>					
+                <h1>Darmowa aplikacja do komponowania indywidualnej diety</h1>
+                
+                <p>Innowacyjny kalkulator dietetyczny oraz możliwość tworzenia w 100% własnej bazy</p>
+            </header>	
+            
+            <div class="row "> <!-- <div class="row no-gutters"> - bez odstępów między zdjęciami (bez "rowków")-->					
+                <div class="col-sm-6">	
+                    <figure>
+                        <img src="{% static 'img/base.png' %}" class="img-fluid" alt="Database" >
+                        <figcaption></figcaption>
+                    </figure>					
+                </div>
+                
+                <div class="col-sm-6">					
+                    <p class="recipe">
+                        Jadłospis nad którym masz pełną kontrolę i którą możesz dowolnie modyfikować
+                    </p>					
+                </div>
+                
+                <div class="col-sm-6">					
+                    <p class="recipe">						
+                        Innowacyjny kalkulator poznawalący Ci skomponować idealną dietę i mieć nad nią kontrolę						
+                    </p>					
+                </div>
+
+                <div class="col-sm-6">					
+                    <figure>
+                        <img src="{% static 'img/calculator.jpg' %}" class="img-fluid" alt="calculator">
+                    </figure>					
+                </div>			
+                
+            </div>											
+        </div>						
+    </section>		
+</main>
+
+{% endblock %}

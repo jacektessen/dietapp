@@ -1,0 +1,78 @@
+{% load static %}
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-jumpers navbar-expand-lg fixed-top">	
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/Logo Diet-App.png' %}" width="52" height="30" class="d-inline-block mr-1 align-bottom" alt="">
+         dietapp.com.pl</a>
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji" >
+        <span class="navbar-toggler-icon" ></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="mainmenu">	
+            <ul class="navbar-nav mr-auto "> <!-- mr-auto - oznacza, że margin right auto - czyli margines od prawej strony będzie utrzymywany automatycznie-->			
+                <li 
+                    {% if '/' == request.path %}
+                    class="nav-item active"
+                    {% else %}
+                    class="nav-item"
+                    {% endif %}
+                >				
+                    <a class="nav-link" href="{% url 'index' %}" > Home </a>				
+                </li>				
+                <li class="nav-item dropdown">				
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Aplikacja </a>	
+                    
+                        <div class="dropdown-menu" aria-labelledby="submenu">
+                        
+                            <a class="dropdown-item" href="{% url 'description' %}"> O APLIKACJI </a>
+                            <a class="dropdown-item" href="{% url 'instruction' %}"> INSTRUKCJA OBSŁUGI </a>
+                            <a class="dropdown-item" href="{% url 'for_whom' %}"> DLA KOGO JEST TA APLIKACJA </a>
+                            <a class="dropdown-item" href="{% url 'why_worth' %}"> DLACZEGO WARTO </a>
+                        
+                        </div>
+                
+                </li>				
+                <li
+                    {% if 'about' in request.path %}
+                    class="nav-item active"
+                    {% else %}
+                    class="nav-item"
+                    {% endif %}          
+                >				
+                    <a class="nav-link" href="{% url 'about' %}" > O NAS </a>				
+                </li>				
+                <li
+                    {% if 'bmi' in request.path %}
+                    class="nav-item active"
+                    {% else %}
+                    class="nav-item"
+                    {% endif %}          
+                >								
+                    <a class="nav-link" href="{% url 'bmi' %}" > BMI KALK.</a>				
+                </li>				
+                <li
+                    {% if 'cooperation' in request.path %}
+                    class="nav-item active"
+                    {% else %}
+                    class="nav-item"
+                    {% endif %}          
+                >							
+                    <a class="nav-link" href="{% url 'cooperation' %}" > WSPÓŁPRACA </a>				
+                </li>			
+                <li
+                    {% if 'contact' in request.path %}
+                    class="nav-item active"
+                    {% else %}
+                    class="nav-item"
+                    {% endif %}          
+                >										
+                    <a class="nav-link" href="{% url 'contact' %}" > KONTAKT </a>				
+                </li>				
+                <li class="nav-item">
+                    <a class="login-button nav-link" href="#" rel="nofollow"> ZALOGUJ SIĘ </a>
+                </li>			
+            </ul>								
+        </div>
+    </div>	
+</nav>

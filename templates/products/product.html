@@ -1,0 +1,36 @@
+{% extends "base.html" %} 
+{% load humanize %}
+
+{%  block content %}
+<main>		
+	<section class="home">			
+		<div class="container">				
+			<header>					
+					<h1>Wybrany produkt</h1>
+            </header>
+
+            {% if product %}
+
+                    <section style="color: black; font-size: 125%;">
+                        <p>id: {{ product.id }}</p>
+                        <p>Produkt: {{ product.product }}</p>
+                        <p>Kaloryczność: {{ product.kcal }}</p>
+                        <p>Białko: {{ product.protein }}</p>
+                        <p>Tłuszcz: {{ product.fat }}</p>
+                        <p>Węglowodany: {{ product.carbo }}</p>
+                        <p>Błonnik: {{ product.fibre }}</p>
+                        <p>Kategoria: {{ product.category }}</p>
+                        <p>Data dodania: {{ product.product_date }}</p>
+                        <p>Zdjęcie: {{ product.photo_main }}</p>
+                    </section>
+
+            {% else %}
+                <h1>No Products Available</h1>
+            {% endif %}
+            
+        </div>
+    </section>
+</main>   
+
+
+{% endblock %}
