@@ -1,0 +1,50 @@
+{% extends "base.html" %} 
+{% load humanize %}
+
+{%  block content %}
+<main>		
+	<section class="home">			
+		<div class="container">				
+			<header>					
+					<h1>Wybrany przepis</h1>
+            </header>
+
+            {% if recipe %}
+                <div style="color: black; font-size: 125%; text-align: left;">
+                    <section >
+                        id: {{ recipe.id }}<br/>
+                        Nazwa: {{ recipe.name }}<br/>
+                        Kategoria: {{ recipe.category }}<br/>
+                        Autor: {{ recipe.author }}<br/>
+                        Przepis: {{ recipe.description }}<br/>
+                        Składnik 1: {{ recipe.product_1 }}<br/>
+                        Ilość 1: {{ recipe.ingredient_1 }}<br/>
+                        Składnik 2: {{ recipe.product_2 }}<br/>
+                        Ilość 2: {{ recipe.ingredient_2 }}<br/>
+                        Składnik 3: {{ recipe.product_3 }}<br/>
+                        Ilość 3: {{ recipe.ingredient_3 }}<br/>
+                        Składnik 4: {{ recipe.product_4 }}<br/>
+                        Ilość 4: {{ recipe.ingredient_4 }}<br/>
+                        Składnik 5: {{ recipe.product_5 }}<br/>
+                        Ilość 5: {{ recipe.ingredient_5 }}<br/>
+                        Składnik 6: {{ recipe.product_6 }}<br/>
+                        Ilość 6: {{ recipe.ingredient_6 }}<br/>
+                        Data dodania: {{ recipe.recipe_date }}<br/>
+                        Zdjęcie: <img class="" src="media/{{ recipe.photo_main }}" alt="" width="150" height="150"/><br/>
+                        
+                    </section>
+                </div>
+                <div>
+                    <img class="" src="{{ recipe.photo_main }}" alt="" width="150" height="150"/>
+                </div>
+
+            {% else %}
+                <h1>No Recipes Available</h1>
+            {% endif %}
+            
+        </div>
+    </section>
+</main>   
+
+
+{% endblock %}

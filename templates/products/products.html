@@ -9,10 +9,6 @@
 	<section class="home">			
 		<div class="container">				
 			<section style="color: black; font-size: 80%;">
-
-
-
-
 <table>
     <caption>Produkty</caption>
     <thead><tr>
@@ -25,7 +21,7 @@
         <th>Błonnik</th>
         <th>Kategoria</th>
         <th>Data dodania</th>
-        <th>Zdjęcie</th>
+        <th>Zdjęcie </th>
     </tr></thead>
     <tbody>
     
@@ -42,7 +38,7 @@
             <td>{{ product.fibre }}</td>
             <td>{{ product.category }}</td>
             <td>{{ product.product_date }}</td>
-            <td>{{ product.photo_main }}</td>
+            <td><img src="media/{{ product.photo_main }}" alt="" width="50" height="50"/></td>
             </tr>
         {% endfor %}
     {% else %}

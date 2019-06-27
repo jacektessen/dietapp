@@ -10,8 +10,8 @@
             </header>
 
             {% if product %}
-
-                    <section style="color: black; font-size: 125%;">
+                <div style="color: black; font-size: 125%;">
+                    <section >
                         <p>id: {{ product.id }}</p>
                         <p>Produkt: {{ product.product }}</p>
                         <p>Kaloryczność: {{ product.kcal }}</p>
@@ -21,8 +21,13 @@
                         <p>Błonnik: {{ product.fibre }}</p>
                         <p>Kategoria: {{ product.category }}</p>
                         <p>Data dodania: {{ product.product_date }}</p>
-                        <p>Zdjęcie: {{ product.photo_main }}</p>
+                        <p>Zdjęcie: <img class="" src="media/{{ product.photo_main }}" alt="" width="150" height="150"/></p>
+                        
                     </section>
+                </div>
+                <div>
+                    <img class="" src="{{ product.photo_main }}" alt="" width="150" height="150"/>
+                </div>
 
             {% else %}
                 <h1>No Products Available</h1>
