@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'dietapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': 'dietapp',
+        'NAME': 'boryczko_dietapp',
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'USER': 'boryczko_dietapp',
+        'PASSWORD': 'dietapp1@',
+        'HOST': 'mysql-635985.vipserv.org',
         'PORT': '3306',
     }
 }
