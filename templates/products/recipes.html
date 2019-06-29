@@ -30,7 +30,7 @@
             <td>{{ recipe.category }}</td>
             <td>{{ recipe.author }}</td>
             <td>{{ recipe.recipe_date }}</td>
-            <td><img src="media/{{ recipe.photo_main }}" alt="" width="50" height="50"/></td>
+            <td><img src="{{ recipe.photo_main.url }}" alt="" width="50" height="50"/></td>
             </tr>
         {% endfor %}
     {% else %}

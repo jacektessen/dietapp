@@ -38,7 +38,7 @@
             <td>{{ product.fibre }}</td>
             <td>{{ product.category }}</td>
             <td>{{ product.product_date }}</td>
-            <td><img src="media/{{ product.photo_main }}" alt="" width="50" height="50"/></td>
+            <td><img src="{{ product.photo_main.url }}" alt="" width="50" height="50"/></td>
             </tr>
         {% endfor %}
     {% else %}

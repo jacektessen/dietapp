@@ -9,29 +9,26 @@
 					<h1>Wybrany produkt</h1>
             </header>
 
-            {% if product %}
-                <div style="color: black; font-size: 125%;">
+            <!-- {% if product %} -->
+                <div style="color: black; font-size: 125%; text-align: left;">
                     <section >
-                        <p>id: {{ product.id }}</p>
-                        <p>Produkt: {{ product.product }}</p>
-                        <p>Kaloryczność: {{ product.kcal }}</p>
-                        <p>Białko: {{ product.protein }}</p>
-                        <p>Tłuszcz: {{ product.fat }}</p>
-                        <p>Węglowodany: {{ product.carbo }}</p>
-                        <p>Błonnik: {{ product.fibre }}</p>
-                        <p>Kategoria: {{ product.category }}</p>
-                        <p>Data dodania: {{ product.product_date }}</p>
-                        <p>Zdjęcie: <img class="" src="media/{{ product.photo_main }}" alt="" width="150" height="150"/></p>
+                        <strong>id:</strong> {{ product.id }}<br/>
+                        <strong>Produkt:</strong> {{ product.product }}<br/>
+                        <strong>Kaloryczność:</strong> {{ product.kcal }}<br/>
+                        <strong>Białko:</strong> {{ product.protein }}<br/>
+                        <strong>Tłuszcz:</strong> {{ product.fat }}<br/>
+                        <strong>Węglowodany:</strong> {{ product.carbo }}<br/>
+                        <strong>Błonnik:</strong> {{ product.fibre }}<br/>
+                        <strong>Kategoria:</strong> {{ product.category }}<br/>
+                        <strong>Data dodania:</strong> {{ product.product_date }}<br/>
+                        <strong>Zdjęcie:</strong> <img class="" src="{{ product.photo_main.url }}" alt="" width="150" height="150"/><br/>
                         
                     </section>
                 </div>
-                <div>
-                    <img class="" src="{{ product.photo_main }}" alt="" width="150" height="150"/>
-                </div>
 
-            {% else %}
+            <!-- {% else %} -->
                 <h1>No Products Available</h1>
-            {% endif %}
+            <!-- {% endif %} -->
             
         </div>
     </section>

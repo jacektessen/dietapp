@@ -29,3 +29,12 @@ def product(request, product_id):
 
     return render(request, 'products/product.html', context)
 
+'''def product(request, product_id):
+    product = get_object_or_404(Products, pk=product_id)
+
+    context = {
+        'product': product
+    }
+
+    return render(request, 'products/product.html', context)
+    '''

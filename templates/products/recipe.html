@@ -30,12 +30,9 @@
                         Składnik 6: {{ recipe.product_6 }}<br/>
                         Ilość 6: {{ recipe.ingredient_6 }}<br/>
                         Data dodania: {{ recipe.recipe_date }}<br/>
-                        Zdjęcie: <img class="" src="media/{{ recipe.photo_main }}" alt="" width="150" height="150"/><br/>
+                        Zdjęcie: <img class="" src="{{ recipe.photo_main.url }}" alt="" width="150" height="150"/><br/>
                         
                     </section>
-                </div>
-                <div>
-                    <img class="" src="{{ recipe.photo_main }}" alt="" width="150" height="150"/>
                 </div>
 
             {% else %}
