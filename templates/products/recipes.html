@@ -61,6 +61,15 @@
                   <a class="page-link">&laquo;</a>
                 </li>
               {% endif %}
+              {% if recipes.has_next %}
+                <li class="page-item">
+                  <a href="?page={{recipes.next_page_number}}"  class="page-link">&raquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disable">
+                  <a class="page-link">&raquo;</a>
+                </li>
+              {% endif %}            
               <!-- ??????????????????????-->              
               {% for i in recipes.paginator.page_range %}
                 {% if recipes.number == i %}
@@ -74,15 +83,7 @@
                 {% endif %}
               {% endfor %}
           {% endif %}
-          {% if recipes.has_next %}
-            <li class="page-item">
-              <a href="?page={{recipes.next_page_number}}"  class="page-link">&raquo;</a>
-            </li>
-          {% else %}
-            <li class="page-item disable">
-              <a class="page-link">&raquo;</a>
-            </li>
-          {% endif %}
+
         </div>
       </div>
 
