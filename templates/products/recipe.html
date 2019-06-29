@@ -12,26 +12,38 @@
             {% if recipe %}
                 <div style="color: black; font-size: 125%; text-align: left;">
                     <section >
-                        id: {{ recipe.id }}<br/>
-                        Nazwa: {{ recipe.name }}<br/>
-                        Kategoria: {{ recipe.category }}<br/>
-                        Autor: {{ recipe.author }}<br/>
-                        Przepis: {{ recipe.description }}<br/>
-                        Składnik 1: {{ recipe.product_1 }}<br/>
-                        Ilość 1: {{ recipe.ingredient_1 }}<br/>
-                        Składnik 2: {{ recipe.product_2 }}<br/>
-                        Ilość 2: {{ recipe.ingredient_2 }}<br/>
-                        Składnik 3: {{ recipe.product_3 }}<br/>
-                        Ilość 3: {{ recipe.ingredient_3 }}<br/>
-                        Składnik 4: {{ recipe.product_4 }}<br/>
-                        Ilość 4: {{ recipe.ingredient_4 }}<br/>
-                        Składnik 5: {{ recipe.product_5 }}<br/>
-                        Ilość 5: {{ recipe.ingredient_5 }}<br/>
-                        Składnik 6: {{ recipe.product_6 }}<br/>
-                        Ilość 6: {{ recipe.ingredient_6 }}<br/>
-                        Data dodania: {{ recipe.recipe_date }}<br/>
-                        Zdjęcie: <img class="" src="{{ recipe.photo_main.url }}" alt="" width="150" height="150"/><br/>
+                        <strong>id:</strong> {{ recipe.id }}<br/>
+                        <strong>Nazwa:</strong> {{ recipe.name }}<br/>
+                        <strong>Kategoria:</strong> {{ recipe.category }}<br/>
+                        <strong>Autor:</strong> {{ recipe.author }}<br/>
+                        <strong>Przepis:</strong> {{ recipe.description }}<br/>
+                        <strong>Składnik 1:</strong> {{ recipe.product_1 }}<br/>
+                        <strong>Ilość 1:</strong> {{ recipe.ingredient_1 }}<br/>
+                        {% if recipe_product_2 %}
+                        <strong>Składnik 2:</strong> {{ recipe.product_2 }}<br/>
+                        <strong>Ilość 2:</strong> {{ recipe.ingredient_2 }}<br/>
+                        {% endif %}
+                        {% if recipe_product_3 %}
+                        <strong>Składnik 3:</strong> {{ recipe.product_3 }}<br/>
+                        <strong>Ilość 3:</strong> {{ recipe.ingredient_3 }}<br/>
+                        {% endif %}
+                        {% if recipe_product_4 %}
+                        <strong>Składnik 4:</strong> {{ recipe.product_4 }}<br/>
+                        <strong>Ilość 4:</strong> {{ recipe.ingredient_4 }}<br/>
+                        {% endif %}
+                        {% if recipe_product_5 %}
+                        <strong>Składnik 5:</strong> {{ recipe.product_5 }}<br/>
+                        <strong>Ilość 5:</strong> {{ recipe.ingredient_5 }}<br/>
+                        {% endif %}
+                        {% if recipe_product_6 %}
+                        <strong>Składnik 6:</strong> {{ recipe.product_6 }}<br/>
+                        <strong>Ilość 6:</strong> {{ recipe.ingredient_6 }}<br/>
+                        {% endif %}
                         
+                        <strong>Data dodania:</strong> {{ recipe.recipe_date }}<br/>
+                        {% if recipe.photo_main %}
+                        <strong>Zdjęcie: <img class="" src="{{ recipe.photo_main.url }}" alt="" width="150" height="150"/><br/>
+                        {% endif %}
                     </section>
                 </div>
 

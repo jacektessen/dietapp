@@ -21,7 +21,9 @@
                         <strong>Błonnik:</strong> {{ product.fibre }}<br/>
                         <strong>Kategoria:</strong> {{ product.category }}<br/>
                         <strong>Data dodania:</strong> {{ product.product_date }}<br/>
+                        {% if product.photo_main %}
                         <strong>Zdjęcie:</strong> <img class="" src="{{ product.photo_main.url }}" alt="" width="150" height="150"/><br/>
+                        {% endif %}
                         
                     </section>
                 </div>

@@ -30,7 +30,11 @@
             <td>{{ recipe.category }}</td>
             <td>{{ recipe.author }}</td>
             <td>{{ recipe.recipe_date }}</td>
-            <td><img src="{{ recipe.photo_main.url }}" alt="" width="50" height="50"/></td>
+            <td>
+            {% if recipe.photo_main %}
+            <img src="{{ recipe.photo_main.url }}" alt="" width="50" height="50"/>
+            {% endif %}
+            </td>
             </tr>
         {% endfor %}
     {% else %}

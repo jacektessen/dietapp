@@ -22,10 +22,10 @@ class Recipes(models.Model):
     product_6 = models.ForeignKey(Products, null=True, related_name='product_6', on_delete=models.DO_NOTHING, blank=True)
     ingredient_6 = models.IntegerField(default=0, null=True, blank=True)
     
-    photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, default="NULL" )
-    photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, default="NULL")
-    photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, default="NULL")
-    photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, default="NULL")
+    photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True )
+    photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+    photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+    photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
     recipe_date = models.DateTimeField(default=datetime.now, blank=True, null=True)
 
     class Meta:

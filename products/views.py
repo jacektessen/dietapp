@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from .models import Products
@@ -13,23 +13,10 @@ def index(request):
     context = {
         'products': paged_products
     }
-
+    
     return render(request, 'products/products.html', context)
-'''
-def product(request, product_id):
-    return render(request, 'products/product.html')
-'''
 
 def product(request, product_id):
-    product = Products.objects.get(id = product_id)
-
-    context = {
-        'product': product
-    }
-
-    return render(request, 'products/product.html', context)
-
-'''def product(request, product_id):
     product = get_object_or_404(Products, pk=product_id)
 
     context = {
@@ -37,4 +24,4 @@ def product(request, product_id):
     }
 
     return render(request, 'products/product.html', context)
-    '''
+    
