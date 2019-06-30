@@ -3,7 +3,7 @@
 
 {%  block content %}
 <main>		
-	<section class="home">			
+	<section class="home" style="text-align: left;">			
 		<div class="container">	
 			<header>
                     <h1>Calculator BMI</h1>
@@ -11,18 +11,18 @@
                 <div style="width: 500px; margin: 0;">
                     <form action="#" method="get">
                     <fieldset class="bmi_tabela">
-                        <legend  style="color: red;">Twoje wartości</legend>
-                        <label for="weight" style="color: red; display: block; width: 200px; float: left; text-align: right; margin: 10px 5px; clear: left;"> Waga [kg]: </label>
+                        <legend  style="color: red;"><strong>Twoje wartości</strong></legend>
+                        <label for="weight" style="color: red; display: block; width: 100px; float: left; text-align: right; margin: 10px 5px; clear: left;"> Waga [kg]: </label>
                         <input type="number" name="weight" id="weight"  style="vertical-align: middle; margin: 10px 5px;"/>
                         <br/>
-                        <label for="height" style="color: red; display: block; width: 200px; float: left; text-align: right; margin: 10px 5px; clear: left;">Wzrost [cm]: </label>
+                        <label for="height" style="color: red; display: block; width: 100px; float: left; text-align: right; margin: 10px 5px; clear: left;">Wzrost [cm]: </label>
                         <input type="number" name="height" id="height"  style="vertical-align: middle; margin: 10px 5px;"/>
                         <br/>
                         <button type="button" onclick="bmi()" style="color: red"> Oblicz BMI </button>
                     </fieldset>
                         <br/>
                     <fieldset >
-                        <legend style="color: red;">Wyniki</legend>
+                        <legend style="color: red;"><strong>Wyniki</strong></legend>
                         <table style="width: 200px; margin: 0;">
                         <tr>
                             <th style="margin: 0; padding: 0;"><p style="color: red;">Wynik BMI: </p></th>

@@ -1,8 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from products.choices import product_kcal_choices, product_protein_choices
 
 def index(request):
-    return render(request, 'pages/index.html')
+
+    context = {
+        'product_kcal_choices': product_kcal_choices,
+        'product_protein_choices': product_protein_choices,
+    }
+    return render(request, 'pages/index.html', context)
 
 def about(request):
     return render(request, 'pages/about.html')
@@ -27,3 +33,6 @@ def instruction(request):
 
 def why_worth(request):
     return render(request, 'pages/why_worth.html')
+
+def search(request):
+    return render(request, 'pages/search.html')

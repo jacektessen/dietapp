@@ -1,7 +1,10 @@
-*.log
+*.pyc*.log
 *.pot
 *.pyc
-__pycache__
+__pycache__/
 local_settings.py
 /media
 /static
+recipes/migrations/
+products/migrations/
+pages/migrations/
