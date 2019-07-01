@@ -98,16 +98,37 @@
                     {% endif %}          
                 >										
                     <a class="nav-link" href="{% url 'contact' %}" >KONTAKT</a>				
-                </li>				
-                <li
-                    {% if 'login' in request.path %}
-                    class="nav-item active"
-                    {% else %}
-                    class="nav-item"
-                    {% endif %}
-                >
-                    <a class="login-button nav-link" href="{% url 'login' %}" rel="nofollow">LOGIN</a>
-                </li>			
+                </li>
+                {% if user.is_authenticated %}	
+                    <li
+                        {% if 'dashboard' in request.path %}
+                        class="nav-item active"
+                        {% else %}
+                        class="nav-item"
+                        {% endif %}
+                    >
+                        <a class="nav-link" href="{% url 'dashboard' %}" >Witaj {{ user.username }} (Panel)</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                        <form action="{% url 'logout' %}" method="POST" id="logout">
+                            {% csrf_token %}
+                            <input type="hidden">
+                        </form>
+                    </li>
+                {% else %}
+                    <li
+                        {% if 'login' in request.path %}
+                        class="nav-item active"
+                        {% else %}
+                        class="nav-item"
+                        {% endif %}
+                    >
+                        <a class="login-button nav-link" href="{% url 'login' %}" rel="nofollow">LOGIN</a>
+                    </li>
+                {% endif %}			
             </ul>								
         </div>
     </div>	

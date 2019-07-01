@@ -1,6 +1,5 @@
 body {
     background-color: rgb(227, 251, 145);
-    color: #efefef;
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
     max-width: 1200px;
@@ -27,10 +26,10 @@ header p {
 
 }
 
-.10 {
+/* .10 {
     margin: 0 auto;
     padding: 0;
-}
+} */
 
 .home {
     text-align: center;

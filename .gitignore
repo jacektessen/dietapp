@@ -8,3 +8,5 @@ local_settings.py
 recipes/migrations/
 products/migrations/
 pages/migrations/
+accounts/migrations/
+accounts/__init__.py
