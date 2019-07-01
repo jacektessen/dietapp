@@ -12,5 +12,6 @@ urlpatterns = [
     path('instrukcja', views.instruction, name='instruction'),
     path('dlaczego_warto', views.why_worth, name='why_worth'),
     path('bmi', views.bmi, name='bmi'),
-    path('search', views.search, name='search'),
+    path('search1', views.search1, name='search1'), # Wyszukiwarka przepisów
+    
 ]   

@@ -1,13 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from products.choices import product_kcal_choices, product_protein_choices
+
+from products.choices import product_kcal_choices, product_protein_choices, product_category_choices, product_carbo_choices, product_fat_choices
+
 
 def index(request):
 
     context = {
         'product_kcal_choices': product_kcal_choices,
         'product_protein_choices': product_protein_choices,
+        'product_category_choices': product_category_choices,
+        'product_carbo_choices': product_carbo_choices,
+        'product_fat_choices': product_fat_choices
     }
+
     return render(request, 'pages/index.html', context)
 
 def about(request):
@@ -34,5 +40,6 @@ def instruction(request):
 def why_worth(request):
     return render(request, 'pages/why_worth.html')
 
-def search(request):
-    return render(request, 'pages/search.html')
+def search1(request):
+    return render(request, 'pages/search_recipes.html')
+

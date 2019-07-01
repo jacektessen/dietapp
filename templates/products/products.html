@@ -5,6 +5,80 @@
 <header style="text-align: center;">
 <h1>Produkty</h1>
 </header>
+<main>
+  <div class="">
+      <div class="container text-center">
+        <div class="home-search p-5" style="padding: 0rem !important; ">
+          <div class="overlay p-5"  style="padding: 0rem !important;">
+            <h1 class="display-4 mb-4" style="font-size: 1.5rem;">
+                  
+            </h1>
+            <div class="search">
+              <form action="{% url 'search2' %}">
+                <!-- Form Row 1 -->
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label class="sr-only">Produkt</label>
+                    <input type="text" name="keywords" class="form-control" placeholder="Produkt">
+                  </div>
+  
+                  <div class="col-md-4 mb-3">
+                      <label class="sr-only">Kat. produktu</label>
+                      <select name="category" class="form-control">
+                      <option selected="true" disabled="disabled">Kategoria</option>
+                        {% for key,value in product_category_choices.items %}
+                        <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                      </select>
+                  </div>
+  
+                  <div class="col-md-4 mb-3">
+                    <label class="sr-only">Kaloryczność</label>
+                    <select name="kcal" class="form-control">
+                      <option selected="true" disabled="disabled">Max. kaloryczność</option>
+                      {% for key,value in product_kcal_choices.items %}
+                          <option value="{{ key }}">{{ value }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                <!-- Form Row 2 -->
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                      <label class="sr-only">Białko</label>
+                      <select name="protein" class="form-control">
+                        <option selected="true" disabled="disabled">Białko</option>
+                        {% for key,value in product_protein_choices.items %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                            <label class="sr-only">Węglowodany</label>
+                            <select name="carbo" class="form-control">
+                              <option selected="true" disabled="disabled">Węglowodany</option>
+                              {% for key,value in product_carbo_choices.items %}
+                                  <option value="{{ key }}">{{ value }}</option>
+                              {% endfor %}
+                            </select>
+                          </div>
+                    <div class="col-md-4 mb-3">
+                      <select name="fat" class="form-control" id="type">
+                        <option selected="true" disabled="disabled">Tłuszcz</option>
+                        {% for key,value in product_fat_choices.items %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+
+                    </select>
+                  </div>
+                </div>
+                <button class="btn btn-secondary btn-block mt-4" type="submit" style="margin-top: 0 !important; ">Szukaj</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
 <main>		
 	<section class="home">			
 		<div class="container">				

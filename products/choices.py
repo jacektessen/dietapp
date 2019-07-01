@@ -14,3 +14,27 @@ product_protein_choices = {
     '100': 'Bardzo wysoka zawartość białka'
 }
 
+product_carbo_choices = {
+    '3': 'Niska zawartość węglowodanów',
+    '20': 'Średnia zawartość węglowodanów',
+    '50': 'Wysoka zawartość węglowodanów',
+    '100': 'Bardzo wysoka zawartość węglowodanów'
+}
+
+product_fat_choices = {
+    '3': 'Niska zawartość tłuszczu',
+    '20': 'Średnia zawartość tłuszczu',
+    '50': 'Wysoka zawartość tłuszczu',
+    '100': 'Bardzo wysoka zawartość tłuszczu'
+}
+
+product_category_choices = {
+    'drób': 'drób',
+    'jaja': 'jaja',
+    'mieso': 'mieso',
+    'mleczne': 'mleczne',
+    'pozostale': 'pozostale',
+    'tluszcze': 'tluszcze',
+    'wedliny': 'wedliny',
+    'zbozowe': 'zbozowe',
+}

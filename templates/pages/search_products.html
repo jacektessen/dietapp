@@ -1,0 +1,181 @@
+{% extends "base.html" %} 
+{% load humanize %}
+
+{%  block content %}
+<header style="text-align: center;">
+<h1>Wyszukiwarka produktów</h1>
+</header>
+<main>
+        <div class="">
+                <div class="container text-center">
+                  <div class="home-search p-5" style="padding: 0rem !important; ">
+                    <div class="overlay p-5"  style="padding: 0rem !important;">
+                      <h1 class="display-4 mb-4" style="font-size: 1.5rem;">
+                            
+                      </h1>
+                      <div class="search">
+                        <form action="{% url 'search2' %}">
+                          <!-- Form Row 1 -->
+                          <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                              <label class="sr-only">Produkt</label>
+                              <input type="text" name="keywords" class="form-control" placeholder="Produkt">
+                            </div>
+            
+                            <div class="col-md-4 mb-3">
+                                <label class="sr-only">Kat. produktu</label>
+                                <select name="category" class="form-control">
+                                    <option selected="true" disabled="disabled">Kategoria</option>
+                                    {% for key,value in product_category_choices.items %}
+                                        <option value="{{ key }}">{{ value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+            
+                            <div class="col-md-4 mb-3">
+                              <label class="sr-only">Kaloryczność</label>
+                              <select name="kcal" class="form-control">
+                                <option selected="true" disabled="disabled">Max. kaloryczność</option>
+                                {% for key,value in product_kcal_choices.items %}
+                                    <option value="{{ key }}">{{ value }}</option>
+                                {% endfor %}
+                              </select>
+                            </div>
+                          </div>
+                          <!-- Form Row 2 -->
+                          <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                  <label class="sr-only">Białko</label>
+                                  <select name="protein" class="form-control">
+                                    <option selected="true" disabled="disabled">Białko</option>
+                                    {% for key,value in product_protein_choices.items %}
+                                        <option value="{{ key }}">{{ value }}</option>
+                                    {% endfor %}
+                                  </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                        <label class="sr-only">Węglowodany</label>
+                                        <select name="carbo" class="form-control">
+                                          <option selected="true" disabled="disabled">Węglowodany</option>
+                                          {% for key,value in product_carbo_choices.items %}
+                                              <option value="{{ key }}">{{ value }}</option>
+                                          {% endfor %}
+                                        </select>
+                                      </div>
+                                <div class="col-md-4 mb-3">
+                                  <select name="fat" class="form-control" id="type">
+                                    <option selected="true" disabled="disabled">Tłuszcz</option>
+                                    {% for key,value in product_fat_choices.items %}
+                                        <option value="{{ key }}">{{ value }}</option>
+                                    {% endfor %}
+    
+                              </select>
+                            </div>
+                          </div>
+                          <button class="btn btn-secondary btn-block mt-4" type="submit" style="margin-top: 0 !important; ">Szukaj</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>	
+            <br/>	
+	<section class="home">			
+		<div class="container">				
+			<section style="color: black; font-size: 80%;">
+<table>
+    <caption>Produkty</caption>
+    <thead><tr>
+        <th>id</th>
+        <th>Produkt</th>
+        <th>Kaloryczność</th>
+        <th>Białko</th>
+        <th>Tłuszcz</th>
+        <th>Węglowodany</th>
+        <th>Błonnik</th>
+        <th>Kategoria</th>
+        <th>Data dodania</th>
+        <th>Zdjęcie </th>
+    </tr></thead>
+    <tbody>
+    
+    {% if products %}
+        {% for product in products %}
+            <tr>
+
+            <td><a href="{% url 'product' product.id %}"> {{ product.id }} </a></td>
+            <td><a href="{% url 'product' product.id %}"> {{ product.product }} </a></td>
+            <td>{{ product.kcal }}</td>
+            <td>{{ product.protein }}</td>
+            <td>{{ product.fat }}</td>
+            <td>{{ product.carbo }}</td>
+            <td>{{ product.fibre }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.product_date }}</td>
+            <td>
+              {% if product.photo_main %}
+                <img src="{{ product.photo_main.url }}" alt="" width="50" height="50"/>
+              {% endif %}
+            </td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+        <td>Dane niedostępne</td>
+        </tr>
+    {% endif %}
+
+    </tbody>
+        
+    
+
+</table>   
+
+      <!--Funkcjonalność związana z PAGINATION przewijanie do strony wcześniejszej lub następnej-->
+      <div class="row">
+        <div class="col-md-12">
+          {% if products.has_other_pages %}
+            <ul class="pagination">
+              <!--Jeśli możliwa jest wcześniejsza strona, to przycisk strzałeczki w tył możliwy
+              jeśli nie ma, to trzałeczka dezaktywowana-->
+              {% if products.has_previous %}
+                <li class="page-item">
+                  <a href="?page={{products.previous_page_number}}"  class="page-link">&laquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disable">
+                  <a class="page-link">&laquo;</a>
+                </li>
+              {% endif %}
+              {% if products.has_next %}
+                <li class="page-item">
+                  <a href="?page={{products.next_page_number}}"  class="page-link">&raquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disable">
+                  <a class="page-link">&raquo;</a>
+                </li>
+              {% endif %}
+              <!-- ??????????????????????-->              
+              {% for i in products.paginator.page_range %}
+                {% if products.number == i %}
+                  <li class="page-item active">
+                    <a class="page-link">{{i}}</a>
+                  </li>
+                {% else %}
+                  <li class="page-item">
+                    <a href="?page={{i}}" class="page-link">{{i}}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+          {% endif %}
+
+        </div>
+      </div>
+
+
+            </section>
+        </div>
+    </section>
+</main>    
+{% endblock %}

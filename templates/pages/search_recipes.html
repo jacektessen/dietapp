@@ -1,0 +1,99 @@
+{% extends "base.html" %} 
+{% load humanize %}
+
+{%  block content %}
+<header style="text-align: center;">
+<h1>Przepisy</h1>
+</header>
+<main>		
+	<section class="home">			
+		<div class="container">				
+			<section style="color: black; font-size: 80%;">
+<table>
+    <caption>Przepisy</caption>
+    <thead><tr>
+        <th>id</th>
+        <th>Nazwa</th>
+        <th>Kategoria</th>
+        <th>Autor</th>
+        <th>Data dodania</th>
+        <th>Zdjęcie </th>
+    </tr></thead>
+    <tbody>
+    
+    {% if recipes %}
+        {% for recipe in recipes %}
+            <tr>
+
+            <td><a href="{% url 'recipe' recipe.id %}"> {{ recipe.id }} </a></td>
+            <td><a href="{% url 'recipe' recipe.id %}"> {{ recipe.name }} </a></td>
+            <td>{{ recipe.category }}</td>
+            <td>{{ recipe.author }}</td>
+            <td>{{ recipe.recipe_date }}</td>
+            <td>
+            {% if recipe.photo_main %}
+            <img src="{{ recipe.photo_main.url }}" alt="" width="50" height="50"/>
+            {% endif %}
+            </td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+        <td>Dane niedostępne</td>
+        </tr>
+    {% endif %}
+
+    </tbody>
+        
+    
+
+</table>   
+
+      <!--Funkcjonalność związana z PAGINATION przewijanie do strony wcześniejszej lub następnej-->
+      <div class="row">
+        <div class="col-md-12">
+          {% if recipes.has_other_pages %}
+            <ul class="pagination">
+              <!--Jeśli możliwa jest wcześniejsza strona, to przycisk strzałeczki w tył możliwy
+              jeśli nie ma, to trzałeczka dezaktywowana-->
+              {% if recipes.has_previous %}
+                <li class="page-item">
+                  <a href="?page={{recipes.previous_page_number}}"  class="page-link">&laquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disable">
+                  <a class="page-link">&laquo;</a>
+                </li>
+              {% endif %}
+              {% if recipes.has_next %}
+                <li class="page-item">
+                  <a href="?page={{recipes.next_page_number}}"  class="page-link">&raquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disable">
+                  <a class="page-link">&raquo;</a>
+                </li>
+              {% endif %}            
+              <!-- ??????????????????????-->              
+              {% for i in recipes.paginator.page_range %}
+                {% if recipes.number == i %}
+                  <li class="page-item active">
+                    <a class="page-link">{{i}}</a>
+                  </li>
+                {% else %}
+                  <li class="page-item">
+                    <a href="?page={{i}}" class="page-link">{{i}}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+          {% endif %}
+
+        </div>
+      </div>
+
+
+            </section>
+        </div>
+    </section>
+</main>    
+{% endblock %}

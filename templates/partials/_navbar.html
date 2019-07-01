@@ -1,15 +1,15 @@
 {% load static %}
 
 <!-- Navbar -->
-<nav class="navbar navbar-dark bg-jumpers navbar-expand-lg fixed-top">	
-    <div class="container-fluid">
+<nav class="navbar navbar-dark bg-jumpers navbar-expand-lg fixed-top ">	
+    <div class="container-fluid ">
         <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/Logo Diet-App.png' %}" width="52" height="30" class="d-inline-block mr-1 align-bottom" alt="">
-         dietapp.com.pl</a>
+         Dietapp</a>
         <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji" >
         <span class="navbar-toggler-icon" ></span>
         </button>
     
-        <div class="collapse navbar-collapse" id="mainmenu">	
+        <div class="collapse navbar-collapse " id="mainmenu" style="flex-grow: 0;">	
             <ul class="navbar-nav mr-auto "> <!-- mr-auto - oznacza, że margin right auto - czyli margines od prawej strony będzie utrzymywany automatycznie-->			
                 <li 
                     {% if '/' == request.path %}
@@ -18,17 +18,29 @@
                     class="nav-item"
                     {% endif %}
                 >				
-                    <a class="nav-link" href="{% url 'index' %}" > Home </a>				
+                    <a class="nav-link" href="{% url 'index' %}" >HOME</a>				
                 </li>				
-                <li class="nav-item dropdown">				
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Aplikacja </a>	
+                <li 
+                    {% if 'opis' in request.path %}
+                    class="nav-item dropdown nav-item active"
+                    {% elif 'instrukcja' in request.path %}
+                    class="nav-item dropdown nav-item active"
+                    {% elif 'dla_kogo' in request.path %}
+                    class="nav-item dropdown nav-item active"
+                    {% elif 'dlaczego_warto' in request.path %}
+                    class="nav-item dropdown nav-item active"                    
+                    {% else %}
+                    class="nav-item dropdown"
+                    {% endif %}
+                    >				
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true">APLIKACJA</a>	
                     
                         <div class="dropdown-menu" aria-labelledby="submenu">
                         
-                            <a class="dropdown-item" href="{% url 'description' %}"> O APLIKACJI </a>
-                            <a class="dropdown-item" href="{% url 'instruction' %}"> INSTRUKCJA OBSŁUGI </a>
-                            <a class="dropdown-item" href="{% url 'for_whom' %}"> DLA KOGO JEST TA APLIKACJA </a>
-                            <a class="dropdown-item" href="{% url 'why_worth' %}"> DLACZEGO WARTO </a>
+                            <a class="dropdown-item" href="{% url 'description' %}">O APLIKACJI</a>
+                            <a class="dropdown-item" href="{% url 'instruction' %}">INSTRUKCJA OBSŁUGI</a>
+                            <a class="dropdown-item" href="{% url 'for_whom' %}">DLA KOGO JEST TA APLIKACJA</a>
+                            <a class="dropdown-item" href="{% url 'why_worth' %}">DLACZEGO WARTO</a>
                         
                         </div>
                 
@@ -40,8 +52,8 @@
                     class="nav-item"
                     {% endif %}          
                 >				
-                    <a class="nav-link" href="{% url 'about' %}" > O NAS </a>				
-                </li>				
+                    <a class="nav-link" href="{% url 'about' %}" >O NAS</a>				
+                </li>	
                 <li
                     {% if 'bmi' in request.path %}
                     class="nav-item active"
@@ -49,28 +61,46 @@
                     class="nav-item"
                     {% endif %}          
                 >								
-                    <a class="nav-link" href="{% url 'bmi' %}" > BMI KALK.</a>				
+                    <a class="nav-link" href="{% url 'bmi' %}" >BMI</a>				
+                </li>
+                <li
+                    {% if 'przepisy' in request.path %}
+                    class="nav-item active"
+                    {% else %}
+                    class="nav-item"
+                    {% endif %}          
+                >								
+                    <a class="nav-link" href="{% url 'recipes' %}" >PRZEPISY</a>				
+                </li>			
+                <li
+                    {% if 'produkty' in request.path %}
+                    class="nav-item active"
+                    {% else %}
+                    class="nav-item"
+                    {% endif %}          
+                >								
+                    <a class="nav-link" href="{% url 'products' %}" >PRODUKTY</a>				
                 </li>				
                 <li
-                    {% if 'cooperation' in request.path %}
+                    {% if 'wspolpraca' in request.path %}
                     class="nav-item active"
                     {% else %}
                     class="nav-item"
                     {% endif %}          
                 >							
-                    <a class="nav-link" href="{% url 'cooperation' %}" > WSPÓŁPRACA </a>				
+                    <a class="nav-link" href="{% url 'cooperation' %}" >WSPÓŁPRACA</a>				
                 </li>			
                 <li
-                    {% if 'contact' in request.path %}
+                    {% if 'kontakt' in request.path %}
                     class="nav-item active"
                     {% else %}
                     class="nav-item"
                     {% endif %}          
                 >										
-                    <a class="nav-link" href="{% url 'contact' %}" > KONTAKT </a>				
+                    <a class="nav-link" href="{% url 'contact' %}" >KONTAKT</a>				
                 </li>				
                 <li class="nav-item">
-                    <a class="login-button nav-link" href="#" rel="nofollow"> ZALOGUJ SIĘ </a>
+                    <a class="login-button nav-link" href="#" rel="nofollow">LOGIN</a>
                 </li>			
             </ul>								
         </div>

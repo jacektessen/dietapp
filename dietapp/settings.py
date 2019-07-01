@@ -77,17 +77,31 @@ WSGI_APPLICATION = 'dietapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# My external db
+
+# DATABASES = {
+#     'default': {
+#         'NAME': 'boryczko_dietapp',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'USER': 'boryczko_dietapp',
+#         'PASSWORD': 'dietapp1@',
+#         'HOST': 'mysql-635985.vipserv.org',
+#         'PORT': '3306',
+#     }
+# }
+
+# My local db
+
 DATABASES = {
     'default': {
-        'NAME': 'boryczko_dietapp',
+        'NAME': 'boryczko_db',
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'boryczko_dietapp',
-        'PASSWORD': 'dietapp1@',
-        'HOST': 'mysql-635985.vipserv.org',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

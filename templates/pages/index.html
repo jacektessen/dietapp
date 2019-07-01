@@ -6,42 +6,41 @@
 {%  block content %}
 
 <main>
-    <!-- <section class="home">			
-        <div class="container">	
-
-                <div class="col-sm-6">
-                        <label class="sr-only">
-                            <select name="kcal" class="form-control">
-                                <option selected="true" disabled="disabled"Pełen przedział kcal></option>
-                                {% for key, value in product_kcal_choices.items %}
-                                    <option value="{{ key }}">{{ value }}</option>
-                                {% endfor %}
-                            </select>
-                        </label>
-                    </div>
-
-        </div>
-    </section> -->
-
-    <section id="showcase">
+<!-- Nagłówek -->
+        <div class="">
             <div class="container text-center">
-              <div class="home-search p-5" style="padding-bottom: 1rem !important; ">
-                <div class="overlay p-5"  style="padding: 2rem !important;">
-                  <h1 class="display-4 mb-4" style="font-size: 2rem;">
+                <div class="home-search p-5" style="padding: 0rem !important;">
+                <div class="overlay p-5"  style="padding: 0.5rem !important;">
+                    <h1 class="display-4 mb-4" style="font-size: 2rem;">
                         Darmowa aplikacja do komponowania indywidualnej diety
+                    </h1>
+                </div>
+            </div>
+            </div>
+        </div>
+<!-- Wyszukiwarka -->
+    <section id="showcase">
+        <div class="row">
+<!-- Wyszukiwarka przepisów -->
+        <div class="col-sm-6">
+            <div class="container text-center">
+              <div class="home-search p-5" style="padding: 0rem !important; ">
+                <div class="overlay p-5"  style="padding: 0rem !important;">
+                  <h1 class="display-4 mb-4" style="font-size: 1.5rem;">
+                        Wyszukiwarka przepisów
                   </h1>
                   <div class="search">
-                    <form action="{% url 'search' %}">
+                    <form action="{% url 'search1' %}">
                       <!-- Form Row 1 -->
                       <div class="form-row">
                         <div class="col-md-4 mb-3">
-                          <label class="sr-only">Produkt, przepis</label>
-                          <input type="text" name="keywords" class="form-control" placeholder="Produkt, przepis">
+                          <label class="sr-only">przepis</label>
+                          <input type="text" name="keywords" class="form-control" placeholder="Przepis">
                         </div>
         
                         <div class="col-md-4 mb-3">
                           <label class="sr-only">Kategoria produktu</label>
-                          <input type="text" name="category" class="form-control" placeholder="Kategoria produktu">
+                          <input type="text" name="category" class="form-control" placeholder="Produkt">
                         </div>
         
                         <div class="col-md-4 mb-3">
@@ -60,70 +59,152 @@
                           <label class="sr-only">Bedrooms</label>
                           <select name="kcal" class="form-control">
 
-                            <option selected="true" disabled="disabled">Kaloryczność produktu</option>
-                            {% for key,value in product_kcal_choices.items %}
+                            <option selected="true" disabled="disabled">Kaloryczność</option>
+                            <!-- {% for key,value in product_kcal_choices.items %}
                                 <option value="{{ key }}">{{ value }}</option>
-                            {% endfor %}
+                            {% endfor %} -->
 
                           </select>
                         </div>
                         <div class="col-md-6 mb-3">
                           <select name="protein" class="form-control" id="type">
-                            <option selected="true" disabled="disabled">Produkty białkowe</option>
+                            <option selected="true" disabled="disabled">Autor</option>
 
-                            {% for key,value in product_protein_choices.items %}
+                            <!-- {% for key,value in product_protein_choices.items %}
                                 <option value="{{ key }}">{{ value }}</option>
-                            {% endfor %}
+                            {% endfor %} -->
 
                           </select>
                         </div>
                       </div>
-                      <button class="btn btn-secondary btn-block mt-4" type="submit" style="margin-top: 0 !important; ">Submit form</button>
+                      <button class="btn btn-secondary btn-block mt-4" type="submit" style="margin-top: 0 !important; ">Szukaj</button>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-    
-    <section class="home">			
-        <div class="container">		
-        
-            <header >					
-                <p>Innowacyjny kalkulator dietetyczny oraz możliwość tworzenia w 100% własnej bazy</p>
-            </header>	
+        </div>
+<!-- Wyszukiwarka produktów -->
 
-
+        <div class="col-sm-6">
+                <div class="container text-center">
+                  <div class="home-search p-5" style="padding: 0rem !important; ">
+                    <div class="overlay p-5"  style="padding: 0rem !important;">
+                      <h1 class="display-4 mb-4" style="font-size: 1.5rem;">
+                            Wysukiwarka produktów
+                      </h1>
+                      <div class="search">
+                        <form action="{% url 'search2' %}">
+                          <!-- Form Row 1 -->
+                          <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                              <label class="sr-only">Produkt</label>
+                              <input type="text" name="keywords" class="form-control" placeholder="Produkt">
+                            </div>
             
-            <div class="row "> <!-- <div class="row no-gutters"> - bez odstępów między zdjęciami (bez "rowków")-->					
-                <div class="col-sm-6">	
-                    <figure>
-                        <img src="{% static 'img/base.png' %}" class="img-fluid" alt="Database" >
-                        <figcaption></figcaption>
-                    </figure>					
+                            <div class="col-md-4 mb-3">
+                                <label class="sr-only">Kat. produktu</label>
+                                <select name="category" class="form-control">
+                                    <option selected="true" disabled="disabled">Kategoria</option>
+                                    {% for key,value in product_category_choices.items %}
+                                        <option value="{{ key }}">{{ value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+            
+                            <div class="col-md-4 mb-3">
+                              <label class="sr-only">Kaloryczność</label>
+                              <select name="kcal" class="form-control">
+                                <option selected="true" disabled="disabled">Max. kaloryczność</option>
+                                {% for key,value in product_kcal_choices.items %}
+                                    <option value="{{ key }}">{{ value }}</option>
+                                {% endfor %}
+                              </select>
+                            </div>
+                          </div>
+                          <!-- Form Row 2 -->
+                          <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                              <label class="sr-only">Białko</label>
+                              <select name="protein" class="form-control">
+                                <option selected="true" disabled="disabled">Białko</option>
+                                {% for key,value in product_protein_choices.items %}
+                                    <option value="{{ key }}">{{ value }}</option>
+                                {% endfor %}
+                              </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                    <label class="sr-only">Węglowodany</label>
+                                    <select name="carbo" class="form-control">
+                                      <option selected="true" disabled="disabled">Węglowodany</option>
+                                      {% for key,value in product_carbo_choices.items %}
+                                          <option value="{{ key }}">{{ value }}</option>
+                                      {% endfor %}
+                                    </select>
+                                  </div>
+                            <div class="col-md-4 mb-3">
+                              <select name="fat" class="form-control" id="type">
+                                <option selected="true" disabled="disabled">Tłuszcz</option>
+                                {% for key,value in product_fat_choices.items %}
+                                    <option value="{{ key }}">{{ value }}</option>
+                                {% endfor %}
+    
+                              </select>
+                            </div>
+                          </div>
+                          <button class="btn btn-secondary btn-block mt-4" type="submit" style="margin-top: 0 !important; ">Szukaj</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+            </div>
+            </div>
+        
+        </section>
+        
+        <section class="home">			
+            <div class="container">		
+            
+                <header >	
+                    <br/>				
+                    <p style="font-size: 1.5rem;">Innowacyjny kalkulator dietetyczny oraz możliwość tworzenia w 100% własnej bazy</p>
+                </header>	
+    
+    
                 
-                <div class="col-sm-6">					
-                    <p class="recipe">
-                        Jadłospis nad którym masz pełną kontrolę i którą możesz dowolnie modyfikować
-                    </p>					
-                </div>
-                
-                <div class="col-sm-6">					
-                    <p class="recipe">						
-                        Innowacyjny kalkulator poznawalący Ci skomponować idealną dietę i mieć nad nią kontrolę						
-                    </p>					
-                </div>
+                <div class="row "> <!-- <div class="row no-gutters"> - bez odstępów między zdjęciami (bez "rowków")-->					
+                    <div class="col-sm-6">	
+                        <figure>
+                            <img src="{% static 'img/base.png' %}" class="img-fluid" alt="Database" >
+                            <figcaption></figcaption>
+                        </figure>					
+                    </div>
+                    
+                    <div class="col-sm-6">					
+                        <p class="recipe">
+                            Jadłospis nad którym masz pełną kontrolę i którą możesz dowolnie modyfikować
+                        </p>					
+                    </div>
+                    
+                    <div class="col-sm-6">					
+                        <p class="recipe">						
+                            Innowacyjny kalkulator poznawalący Ci skomponować idealną dietę i mieć nad nią kontrolę						
+                        </p>					
+                    </div>
+    
+                    <div class="col-sm-6">					
+                        <figure>
+                            <img src="{% static 'img/calculator.jpg' %}" class="img-fluid" alt="calculator">
+                        </figure>					
+                    </div>			
+                    
+                </div>											
+            </div>
 
-                <div class="col-sm-6">					
-                    <figure>
-                        <img src="{% static 'img/calculator.jpg' %}" class="img-fluid" alt="calculator">
-                    </figure>					
-                </div>			
-                
-            </div>											
-        </div>						
-    </section>		
+    </section>
+    
+	
 </main>
 
 {% endblock %}
