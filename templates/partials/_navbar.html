@@ -99,8 +99,14 @@
                 >										
                     <a class="nav-link" href="{% url 'contact' %}" >KONTAKT</a>				
                 </li>				
-                <li class="nav-item">
-                    <a class="login-button nav-link" href="#" rel="nofollow">LOGIN</a>
+                <li
+                    {% if 'login' in request.path %}
+                    class="nav-item active"
+                    {% else %}
+                    class="nav-item"
+                    {% endif %}
+                >
+                    <a class="login-button nav-link" href="{% url 'login' %}" rel="nofollow">LOGIN</a>
                 </li>			
             </ul>								
         </div>
