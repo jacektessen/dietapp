@@ -42,7 +42,11 @@
                               <select name="kcal" class="form-control">
                                 <option selected="true" disabled="disabled">Max. kaloryczność</option>
                                 {% for key,value in product_kcal_choices.items %}
-                                    <option value="{{ key }}">{{ value }}</option>
+                                    <option value="{{ key }}"
+                                    {% if key == values.kcal %}
+                                      selected
+                                    {% endif %}
+                                    >{{ value }}</option>
                                 {% endfor %}
                               </select>
                             </div>
@@ -54,24 +58,35 @@
                                   <select name="protein" class="form-control">
                                     <option selected="true" disabled="disabled">Białko</option>
                                     {% for key,value in product_protein_choices.items %}
-                                        <option value="{{ key }}">{{ value }}</option>
+                                        <option value="{{ key }}"
+                                        {% if key == values.protein %}
+                                          selected
+                                        {% endif %}>{{ value }}</option>
                                     {% endfor %}
                                   </select>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                        <label class="sr-only">Węglowodany</label>
-                                        <select name="carbo" class="form-control">
-                                          <option selected="true" disabled="disabled">Węglowodany</option>
-                                          {% for key,value in product_carbo_choices.items %}
-                                              <option value="{{ key }}">{{ value }}</option>
-                                          {% endfor %}
-                                        </select>
-                                      </div>
+                                    <label class="sr-only">Węglowodany</label>
+                                    <select name="carbo" class="form-control">
+                                      <option selected="true" disabled="disabled">Węglowodany</option>
+                                      {% for key,value in product_carbo_choices.items %}
+                                        <option value="{{ key }}"
+                                        {% if key == values.carbo %}
+                                          selected
+                                        {% endif %}
+                                        >{{ value }}</option>
+                                      {% endfor %}
+                                    </select>
+                                  </div>
                                 <div class="col-md-4 mb-3">
                                   <select name="fat" class="form-control" id="type">
                                     <option selected="true" disabled="disabled">Tłuszcz</option>
                                     {% for key,value in product_fat_choices.items %}
-                                        <option value="{{ key }}">{{ value }}</option>
+                                      <option value="{{ key }}"
+                                      {% if key == values.fat %}
+                                        selected
+                                      {% endif %}
+                                      >{{ value }}</option>
                                     {% endfor %}
     
                               </select>
