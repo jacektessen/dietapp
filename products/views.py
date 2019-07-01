@@ -94,7 +94,8 @@ def search2(request):
         'product_category_choices': product_category_choices,
         'product_carbo_choices': product_carbo_choices,
         'product_fat_choices': product_fat_choices,
-        'products': queryset_list
+        'products': queryset_list,
+        'values': request.GET
     }
     return render(request, 'pages/search_products.html', context)
     

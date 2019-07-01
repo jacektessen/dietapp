@@ -1,7 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from products.choices import product_kcal_choices, product_protein_choices, product_category_choices, product_carbo_choices, product_fat_choices
+from products.choices import (
+    product_kcal_choices, 
+    product_protein_choices, 
+    product_category_choices, 
+    product_carbo_choices, 
+    product_fat_choices,
+)
 
 
 def index(request):

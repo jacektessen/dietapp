@@ -19,7 +19,8 @@
                           <div class="form-row">
                             <div class="col-md-4 mb-3">
                               <label class="sr-only">Produkt</label>
-                              <input type="text" name="keywords" class="form-control" placeholder="Produkt">
+                              <input type="text" name="keywords" class="form-control" placeholder="Produkt"
+                              value="{{ values.keywords }}">
                             </div>
             
                             <div class="col-md-4 mb-3">
@@ -27,7 +28,11 @@
                                 <select name="category" class="form-control">
                                     <option selected="true" disabled="disabled">Kategoria</option>
                                     {% for key,value in product_category_choices.items %}
-                                        <option value="{{ key }}">{{ value }}</option>
+                                        <option value="{{ key }}"
+                                        {% if key == values.category %}
+                                          selected
+                                        {% endif %}
+                                        >{{ value }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
