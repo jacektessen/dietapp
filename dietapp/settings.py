@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'contacts.apps.ContactsConfig',
     'accounts.apps.AccountsConfig',
     'products.apps.ProductsConfig',
     'recipes.apps.RecipesConfig',
@@ -80,29 +81,29 @@ WSGI_APPLICATION = 'dietapp.wsgi.application'
 
 # My external db
 
-# DATABASES = {
-#     'default': {
-#         'NAME': 'boryczko_dietapp',
-#         'ENGINE': 'django.db.backends.mysql',
-#         'USER': 'boryczko_dietapp',
-#         'PASSWORD': 'dietapp1@',
-#         'HOST': 'mysql-635985.vipserv.org',
-#         'PORT': '3306',
-#     }
-# }
-
-# My local db
-
 DATABASES = {
     'default': {
-        'NAME': 'boryczko_db',
+        'NAME': 'boryczko_dietapp',
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'USER': 'boryczko_dietapp',
+        'PASSWORD': 'dietapp1@',
+        'HOST': 'mysql-635985.vipserv.org',
         'PORT': '3306',
     }
 }
+
+# My local db
+
+# DATABASES = {
+#     'default': {
+#         'NAME': 'boryczko_db',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -158,3 +159,11 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
+
+# Email config
+# https://docs.djangoproject.com/en/2.2/topics/email/
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'jacek.tessen2@gmail.com'
+EMAIL_HOST_PASSWORD = 'Aj@x12Aj@x'
+EMAIL_USE_TLS = True

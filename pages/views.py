@@ -28,8 +28,8 @@ def about(request):
 def bmi(request):
     return render(request, 'pages/bmi.html')
 
-def contact(request):
-    return render(request, 'pages/contact.html')
+def contact_page(request):
+    return render(request, 'pages/contact_page.html')
 
 def cooperation(request):
     return render(request, 'pages/cooperation.html')
