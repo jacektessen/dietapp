@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from contacts.models import Contact
+from products.models import Products
 
 def register(request):
     if request.method == 'POST':
@@ -66,3 +67,21 @@ def dashboard(request):
   }
   return render(request, 'accounts/dashboard.html', context)
 
+
+
+def dashboard_message(request, contact_id):
+    contact = get_object_or_404(Contact, pk=contact_id)
+
+    context = {
+        'contact': contact
+    }
+    return render(request, 'accounts/dashboard_message.html', context)
+
+
+def test(request, contact_id):
+    contact = get_object_or_404(Contact, pk=contact_id)
+
+    context = {
+        'contact': contact
+    }
+    return render(request, 'accounts/test.html', context)
