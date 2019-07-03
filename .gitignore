@@ -3,8 +3,6 @@
 *.pyc
 __pycache__/
 local_settings.py
-/media
-/static
 recipes/migrations/
 products/migrations/
 pages/migrations/

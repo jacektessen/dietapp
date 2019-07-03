@@ -26,6 +26,7 @@ SECRET_KEY = 'z^ngaly2sx_3rbauuzr7folj7*#w!dv#sc(c!sw8e&ayr$0*x='
 DEBUG = True
 
 ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
+# ALLOWED_HOSTS = []
 
 
 # Application definition
