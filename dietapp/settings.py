@@ -25,8 +25,8 @@ SECRET_KEY = 'z^ngaly2sx_3rbauuzr7folj7*#w!dv#sc(c!sw8e&ayr$0*x='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,29 +82,29 @@ WSGI_APPLICATION = 'dietapp.wsgi.application'
 
 # My external db
 
-# DATABASES = {
-#     'default': {
-#         'NAME': 'boryczko_dietapp',
-#         'ENGINE': 'django.db.backends.mysql',
-#         'USER': 'boryczko_dietapp',
-#         'PASSWORD': 'dietapp1@',
-#         'HOST': 'mysql-635985.vipserv.org',
-#         'PORT': '3306',
-#     }
-# }
-
-# My local db
-
 DATABASES = {
     'default': {
-        'NAME': 'boryczko_db',
+        'NAME': 'boryczko_dietapp',
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'USER': 'boryczko_dietapp',
+        'PASSWORD': 'dietapp1@',
+        'HOST': 'mysql-635985.vipserv.org',
         'PORT': '3306',
     }
 }
+
+# My local db
+
+# DATABASES = {
+#     'default': {
+#         'NAME': 'boryczko_db',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
