@@ -25,13 +25,14 @@ SECRET_KEY = 'z^ngaly2sx_3rbauuzr7folj7*#w!dv#sc(c!sw8e&ayr$0*x='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'my_test.apps.MyTestConfig',
     'contacts.apps.ContactsConfig',
     'accounts.apps.AccountsConfig',
     'products.apps.ProductsConfig',
@@ -103,6 +104,9 @@ DATABASES = {
 #         'PASSWORD': '',
 #         'HOST': 'localhost',
 #         'PORT': '3306',
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         },
 #     }
 # }
 

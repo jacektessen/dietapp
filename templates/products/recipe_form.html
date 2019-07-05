@@ -1,0 +1,153 @@
+{% extends "base.html" %} 
+
+{% block title %} | Nowy Przepis {% endblock %}
+{%  block content %}
+
+<main>		
+	<section class="home">			
+		<div class="container">				
+			<header>					
+					<h1>Nowy przepis</h1>
+      </header>
+        <!-- Inquiry Modal -->
+     
+      {% if user.is_authenticated %}
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inquiryModalLabel">Napisz przepis</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'add_recipe' %}" method="POST">
+              {% csrf_token %}
+                <input type="hidden" name="user_id" value="{{ user.id }}">
+                <div class="form-group">
+                    <label for="name" class="col-form-label">Nazwa: </label>
+                    <input type="text" name="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="category" class="col-form-label">Kategoria: </label>
+                    <input type="text" name="category" class="form-control">
+                </div>
+                    <div class="form-group">
+                    <label for="author" class="col-form-label">Autor: </label>
+                    <input type="text" name="author" class="form-control" value="{{ user.username }}">
+                </div>
+                    <div class="form-group">
+                    <label for="description" class="col-form-label">Przepis: </label>
+                    <textarea rows="10" type="text" name="description" class="form-control"></textarea>
+                </div>
+                <p>
+                        <u><a href="{% url 'legend' %}" 
+                            onclick="window.open('{% url 'legend' %}', 
+                                                    'newwindow', 
+                                                    'width=300,height=900'); 
+                                    return false;"
+                            
+                            >Legenda indeksów</a></u><br/>
+                            (podaj tylko indeks produktu, ilość w gramach)
+                </p>
+                <div class="form-row">
+                    <div class="col-md-1">
+                    <label for="product_1_id" class="col-form-label">
+                        Produkt 1: 
+                    </label>
+                    <input type="text" name="product_1_id" class="form-control">
+                </div>
+                    <div class="col-md-1">
+                    <label for="ingredient_1" class="col-form-label">Ilość 1: </label>
+                    <input type="text" name="ingredient_1" class="form-control">
+                </div>
+                    <div class="col-md-1">
+                    <label for="product_2_id" class="col-form-label">Produkt 2: </label>
+                    <input type="text" name="product_2_id" class="form-control" >
+                </div>
+                    <div class="col-md-1">
+                    <label for="ingredient_2" class="col-form-label">Ilość 2: </label>
+                    <input type="text" name="ingredient_2" class="form-control">
+                </div>
+                
+                    <div class="col-md-1">
+                    <label for="product_3_id" class="col-form-label">Produkt 3: </label>
+                    <input type="text" name="product_3_id" class="form-control">
+                </div>
+                    <div class="col-md-1">
+                    <label for="ingredient_3" class="col-form-label">Ilość 3: </label>
+                    <input type="text" name="ingredient_3" class="form-control">
+                </div>
+                <div class="col-md-1">
+                    <label for="product_4_id" class="col-form-label">Produkt 4: </label>
+                    <input type="text" name="product_4_id" class="form-control">
+                </div>
+                    <div class="col-md-1">
+                    <label for="ingredient_4" class="col-form-label">Ilość 4: </label>
+                    <input type="text" name="ingredient_4" class="form-control">
+                </div>
+                    
+                    <div class="col-md-1">
+                    <label for="product_5_id" class="col-form-label">Produkt 5: </label>
+                    <input type="text" name="product_5_id" class="form-control">
+                </div>
+                    <div class="col-md-1">
+                    <label for="ingredient_5" class="col-form-label">Ilość 5: </label>
+                    <input type="text" name="ingredient_5" class="form-control">
+                </div>
+                
+                    <div class="col-md-1">
+                    <label for="product_6_id" class="col-form-label">Produkt 6: </label>
+                    <input type="text" name="product_6_id" class="form-control">
+                </div>
+                    <div class="col-md-1">
+                    <label for="ingredient_6" class="col-form-label">Ilość 6: </label>
+                    <input type="text" name="ingredient_6" class="form-control">
+                </div>
+            </div>
+            
+<!-- Dodawanie zdjęć -->
+            <!-- <div class="form-row">
+                    <div class="col-md-1">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <label for="ingredient_6" class="col-form-label">Zdjęcie: </label>
+                <button type="submit">Upload</button>
+              </form>
+                    </div>
+            </div> -->
+               
+                
+                    <!-- <div class="form-group">
+                    <label for="photo_main" class="col-form-label">Zdjęcie: </label>
+                    <input type="text" name="photo_main" class="form-control">
+                </div> -->
+                    <div class="form-group">
+                    <input type="hidden" name="recipe_date" class="form-control">
+                </div>
+                <hr>
+                <input type="submit" value="Send" class="btn btn-block btn-secondary">
+                <div></div>
+            </form>   
+                 
+        </div>
+        </div>
+          </div>
+          <div>
+              
+              <form action="{% url 'add_recipe' %}" method="POST">
+                  {% csrf_token %}
+                      <input type="hidden" name="user_id" value="{{ user.id }}">
+              </form>
+          </div>
+        {% else %}
+        <h2>Funkcja dostępna wyłącznie dla zalogowanych użytkowników</h2>
+        {% endif %}
+      </section>
+      
+  </main>
+  
+  
+  
+{% endblock %}
+

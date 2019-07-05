@@ -3,6 +3,8 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+
 {% include 'partials/_alerts.html' %}
 <section id="showcase-inner" class="py-5">
     <div class="container">
@@ -64,4 +66,11 @@
         </div>
     </div>
 </section>
+
+{% else %}
+
+<h1>Ta część wymaga zalogowania</h1>
+
+{% endif %}
+
 {% endblock %}

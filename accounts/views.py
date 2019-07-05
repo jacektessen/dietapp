@@ -78,8 +78,16 @@ def dashboard_message(request, contact_id):
     return render(request, 'accounts/dashboard_message.html', context)
 
 
-def test(request, contact_id):
-    contact = get_object_or_404(Contact, pk=contact_id)
+# def test(request, contact_id):
+#     contact = get_object_or_404(Contact, pk=contact_id)
+
+#     context = {
+#         'contact': contact
+#     }
+#     return render(request, 'accounts/test.html', context)
+
+def test(request, slug):
+    contact = get_object_or_404(Contact, slug=slug)
 
     context = {
         'contact': contact

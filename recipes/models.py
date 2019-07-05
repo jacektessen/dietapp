@@ -7,10 +7,11 @@ class Recipes(models.Model):
     name = models.CharField(max_length=200)
     category = models.CharField(max_length=50)
     author = models.CharField(max_length=50)
+    user_id = models.IntegerField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
-    product_1 = models.ForeignKey(Products, null=True, related_name='product_1', on_delete=models.DO_NOTHING)
-    ingredient_1 = models.IntegerField(default=0, null=True) 
+    product_1 = models.ForeignKey(Products, null=True, related_name='product_1', on_delete=models.DO_NOTHING, blank=True)
+    ingredient_1 = models.IntegerField(default=0, null=True, blank=True) 
     product_2 = models.ForeignKey(Products, null=True, related_name='product_2', on_delete=models.DO_NOTHING, blank=True)
     ingredient_2 = models.IntegerField(default=0, null=True, blank=True) 
     product_3 = models.ForeignKey(Products, null=True, related_name='product_3', on_delete=models.DO_NOTHING, blank=True)

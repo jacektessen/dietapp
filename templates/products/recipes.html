@@ -3,9 +3,11 @@
 {% block title %} | Przepisy {% endblock %}
 
 {%  block content %}
+{% include 'partials/_alerts.html' %}
 <header style="text-align: center;">
 <h1>Przepisy</h1>
 </header>
+<h4><strong><u><a href="{% url 'recipe_form' %}" >Dodaj nowy +</a></u></strong></h4>
 <main>		
 	<section class="home">			
 		<div class="container">				

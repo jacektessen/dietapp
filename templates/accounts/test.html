@@ -1,5 +1,6 @@
 <h1>Test</h1>
 
+{% if user.is_authenticated %}
 {% if contact %}
     <h2>{{ contact.id }} {{ contact.name }}</p></h2>
     <p>{{ contact.email }}</p>
@@ -11,4 +12,5 @@
     <p>{{ contact. }}</p>
 {% else %}
     <p>Baza nie jest dostępna</p>
+{% endif %}
 {% endif %}
