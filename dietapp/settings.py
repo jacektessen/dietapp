@@ -25,8 +25,8 @@ SECRET_KEY = 'z^ngaly2sx_3rbauuzr7folj7*#w!dv#sc(c!sw8e&ayr$0*x='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
+# ALLOWED_HOSTS = []
 
 
 # Application definition
