@@ -1,0 +1,96 @@
+{% extends "base.html" %} 
+
+{% block title %} | Kontakt {% endblock %}
+{%  block content %}
+
+<main>		
+	<section class="home">			
+		<div class="container">				
+			<header>					
+					<h1>Kontakt</h1>
+      </header>
+        <!-- Inquiry Modal -->
+      {% include 'partials/_alerts.html' %}
+      {% if user.is_authenticated %}
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inquiryModalLabel">Napisz przepis</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'test_recipes' %}" method="POST">
+              {% csrf_token %}
+                <input type="hidden" name="user_id" value="{{ user.id }}">
+                <div class="form-group">
+                    <label for="name" class="col-form-label">Nazwa: </label>
+                    <input type="text" name="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="category" class="col-form-label">Kategoria: </label>
+                    <input type="text" name="category" class="form-control">
+                </div>
+                    <div class="form-group">
+                    <label for="author" class="col-form-label">Autor: </label>
+                    <input type="text" name="author" class="form-control">
+                </div>
+                    <div class="form-group">
+                    <label for="description" class="col-form-label">Przepis: </label>
+                    <textarea type="text" name="description" class="form-control"></textarea>
+                </div>
+                    <div class="form-group">
+                    <label for="product_test_1_id" class="col-form-label">Produkt 1: </label>
+                    <input type="text" name="product_test_1_id" class="form-control">
+                </div>
+                    <!-- <div class="form-group">
+                    <label for="ingredient_1" class="col-form-label">Ilość 1: </label>
+                    <input type="text" name="ingredient_1" class="form-control">
+                </div>
+                    <div class="form-group">
+                    <label for="product_test_2" class="col-form-label">Produkt 2: </label>
+                    <input type="text" name="product_test_2" class="form-control">
+                </div>
+                    <div class="form-group">
+                    <label for="ingredient_2" class="col-form-label">Ilość 2: </label>
+                    <input type="text" name="ingredient_2" class="form-control">
+                </div>
+                    </div>
+                    <div class="form-group">
+                    <label for="product_test_3" class="col-form-label">Produkt 3: </label>
+                    <input type="text" name="product_test_3" class="form-control">
+                </div>
+                    <div class="form-group">
+                    <label for="ingredient_3" class="col-form-label">Ilość 3: </label>
+                    <input type="text" name="ingredient_3" class="form-control">
+                </div> -->
+                    <!-- <div class="form-group">
+                    <label for="photo_main" class="col-form-label">Zdjęcie: </label>
+                    <input type="text" name="photo_main" class="form-control">
+                </div> -->
+                    <div class="form-group">
+                    <input type="hidden" name="recipe_date" class="form-control">
+                </div>
+                <hr>
+                <input type="submit" value="Send" class="btn btn-block btn-secondary">
+            </form>        
+        </div>
+        </div>
+          </div>
+          <div>
+              <form action="{% url 'test_recipes' %}" method="POST">
+                  {% csrf_token %}
+                      <input type="hidden" name="user_id" value="{{ user.id }}">
+              </form>
+          </div>
+        {% else %}
+        <h2>Nie jesteś zalogowany</h2>
+        {% endif %}
+      </section>
+      
+  </main>
+  
+  
+  
+{% endblock %}
+
