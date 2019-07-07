@@ -4,53 +4,24 @@
 
 {%  block content %}
 {% include 'partials/_alerts.html' %}
-<header style="text-align: center;">
-<h1>Przepisy</h1>
-</header>
+<main>
+    <div class="">
+  
+  <!-- Wyszukiwarka przepisów -->
+  {% include 'partials/_search1.html' %}
+  
+    </div>
+    <br/>
+  </main>
+
 <h4><strong><u><a href="{% url 'recipe_form' %}" >Dodaj nowy +</a></u></strong></h4>
 <main>		
 	<section class="home">			
 		<div class="container">				
 			<section style="color: black; font-size: 80%;">
-<table>
-    <caption>Przepisy</caption>
-    <thead><tr>
-        <th>id</th>
-        <th>Nazwa</th>
-        <th>Kategoria</th>
-        <th>Autor</th>
-        <th>Data dodania</th>
-        <th>Zdjęcie </th>
-    </tr></thead>
-    <tbody>
-    
-    {% if recipes %}
-        {% for recipe in recipes %}
-            <tr>
 
-            <td><a href="{% url 'recipe' recipe.id %}"> {{ recipe.id }} </a></td>
-            <td><a href="{% url 'recipe' recipe.id %}"> {{ recipe.name }} </a></td>
-            <td>{{ recipe.category }}</td>
-            <td>{{ recipe.author }}</td>
-            <td>{{ recipe.recipe_date }}</td>
-            <td>
-            {% if recipe.photo_main %}
-            <img src="{{ recipe.photo_main.url }}" alt="" width="50" height="50"/>
-            {% endif %}
-            </td>
-            </tr>
-        {% endfor %}
-    {% else %}
-        <tr>
-        <td>Dane niedostępne</td>
-        </tr>
-    {% endif %}
-
-    </tbody>
-        
-    
-
-</table>   
+<!-- Tabela przepisów -->
+{% include 'partials/_table_recipes.html' %}   
 
       <!--Funkcjonalność związana z PAGINATION przewijanie do strony wcześniejszej lub następnej-->
       <div class="row">

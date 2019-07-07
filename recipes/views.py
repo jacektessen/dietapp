@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.contrib.auth.models import User
 from django.contrib import messages, auth
+from django.db.models import Q
 
 from .models import Recipes
 from products.models import Products
+from .choices import recipe_kcal_choices, recipe_category_choices
 
 def index(request):
     recipes = Recipes.objects.all()
@@ -14,20 +16,18 @@ def index(request):
     paged_recipes = paginator.get_page(page)
 
     context = {
-        'recipes': paged_recipes
+        'recipes': paged_recipes,
+        'recipe_kcal_choices': recipe_kcal_choices,
+        'recipe_category_choices': recipe_category_choices
     }
 
     return render(request, 'products/recipes.html', context)
-'''
-def product(request, recipe_id):
-    return render(request, 'products/product.html')
-'''
 
 def recipe(request, recipe_id):
     recipe = Recipes.objects.get(id = recipe_id)
 
     context = {
-        'recipe': recipe
+        'recipe': recipe,
     }
 
     return render(request, 'products/recipe.html', context)
@@ -124,3 +124,48 @@ def legend(request):
         'products': queryset_list
     }
     return render(request, 'products/legend.html', context)
+
+def search1(request):
+    queryset_list = Recipes.objects.all()
+
+    # Keywords przepisu w kolumnie nazwy przepisu
+    if 'keywords_recipes' in request.GET:
+        keywords_recipes = request.GET['keywords_recipes']
+        if keywords_recipes:
+            queryset_list = queryset_list.filter(name__icontains=keywords_recipes)
+
+    # Keywords produktu w kolumnie nazwy przepisu
+    if 'keywords_products' in request.GET:
+        keywords_products = request.GET['keywords_products']
+        if keywords_products:
+            queryset_list = queryset_list.filter(Q(product_1_id=keywords_products) |
+                                                Q(product_2_id=keywords_products) |
+                                                Q(product_3_id=keywords_products) |
+                                                Q(product_4_id=keywords_products) |
+                                                Q(product_5_id=keywords_products) |
+                                                Q(product_6_id=keywords_products)
+                                                )
+        # dlaczego poniższe nie działa???
+        # if queryset_list is None:
+        #     queryset_list = queryset_list.filter(product_2_id=keywords_products)
+
+    # Category
+    if 'category' in request.GET:
+        category = request.GET['category']
+        if category != 'Kategoria':
+            queryset_list = queryset_list.filter(category__iexact=category)
+
+    # Category
+    if 'author' in request.GET:
+        author = request.GET['author']
+        if author:
+            queryset_list = queryset_list.filter(author__icontains=author)
+
+    context = {
+        'recipe_category_choices': recipe_category_choices,
+        # 'recipe_kcal_choices': recipe_kcal_choices,
+        'recipes': queryset_list,
+        'values': request.GET
+    }
+
+    return render(request, 'pages/search_recipes.html', context)

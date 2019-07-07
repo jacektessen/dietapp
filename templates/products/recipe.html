@@ -19,23 +19,23 @@
                         <strong>Przepis:</strong> {{ recipe.description }}<br/>
                         <strong>Składnik 1:</strong> {{ recipe.product_1 }}<br/>
                         <strong>Ilość 1:</strong> {{ recipe.ingredient_1 }} gramów<br/>
-                        {% if recipe_product_2 %}
+                        {% if recipe.product_2 %}
                         <strong>Składnik 2:</strong> {{ recipe.product_2 }}<br/>
                         <strong>Ilość 2:</strong> {{ recipe.ingredient_2 }} gramów<br/>
                         {% endif %}
-                        {% if recipe_product_3 %}
+                        {% if recipe.product_3 %}
                         <strong>Składnik 3:</strong> {{ recipe.product_3 }}<br/>
                         <strong>Ilość 3:</strong> {{ recipe.ingredient_3 }} gramów<br/>
                         {% endif %}
-                        {% if recipe_product_4 %}
+                        {% if recipe.product_4 %}
                         <strong>Składnik 4:</strong> {{ recipe.product_4 }}<br/>
                         <strong>Ilość 4:</strong> {{ recipe.ingredient_4 }} gramów<br/>
                         {% endif %}
-                        {% if recipe_product_5 %}
+                        {% if recipe.product_5 %}
                         <strong>Składnik 5:</strong> {{ recipe.product_5 }}<br/>
                         <strong>Ilość 5:</strong> {{ recipe.ingredient_5 }} gramów<br/>
                         {% endif %}
-                        {% if recipe_product_6 %}
+                        {% if recipe.product_6 %}
                         <strong>Składnik 6:</strong> {{ recipe.product_6 }}<br/>
                         <strong>Ilość 6:</strong> {{ recipe.ingredient_6 }} gramów<br/>
                         {% endif %}

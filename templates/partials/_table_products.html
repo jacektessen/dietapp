@@ -1,0 +1,47 @@
+<table>
+        <caption>Produkty</caption>
+        <thead><tr>
+            <th>id</th>
+            <th>Produkt</th>
+            <th>Kaloryczność</th>
+            <th>Białko</th>
+            <th>Tłuszcz</th>
+            <th>Węglowodany</th>
+            <th>Błonnik</th>
+            <th>Kategoria</th>
+            <th>Data dodania</th>
+            <th>Zdjęcie </th>
+        </tr></thead>
+        <tbody>
+        
+        {% if products %}
+            {% for product in products %}
+                <tr>
+    
+                <td><a href="{% url 'product' product.id %}"> {{ product.id }} </a></td>
+                <td><a href="{% url 'product' product.id %}"> {{ product.product }} </a></td>
+                <td>{{ product.kcal }}</td>
+                <td>{{ product.protein }}</td>
+                <td>{{ product.fat }}</td>
+                <td>{{ product.carbo }}</td>
+                <td>{{ product.fibre }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.product_date }}</td>
+                <td>
+                  {% if product.photo_main %}
+                    <img src="{{ product.photo_main.url }}" alt="" width="50" height="50"/>
+                  {% endif %}
+                </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+            <td>Dane niedostępne</td>
+            </tr>
+        {% endif %}
+    
+        </tbody>
+            
+        
+    
+    </table> 

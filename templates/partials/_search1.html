@@ -1,0 +1,64 @@
+<div class="container text-center">
+        <div class="home-search p-5" style="padding: 0rem !important; ">
+          <div class="overlay p-5"  style="padding: 0rem !important;">
+            <h1 class="display-4 mb-4" style="font-size: 1.5rem;">
+                  Wyszukiwarka przepisów
+            </h1>
+            <div class="search">
+              <form action="{% url 'search1' %}">
+                <!-- Form Row 1 -->
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label class="sr-only">Przepis</label>
+                    <input type="text" name="keywords_recipes" class="form-control" placeholder="Przepis" 
+                    value="{{ values.keywords_recipes }}">
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label class="sr-only">Produkt</label>
+                    <input type="text" name="keywords_products" class="form-control" placeholder="Produkt" 
+                    value="{{ values.keywords_products }}">
+                  </div>
+  
+                  <div class="col-md-4 mb-3">
+                    <label class="sr-only">Kategoria</label>
+                    <select name="category" class="form-control">
+                        <option selected="true">Kategoria</option>
+                        {% for key,value in recipe_category_choices.items %}
+                            <option value="{{ key }}"
+                            {% if key == values.category %}
+                              selected
+                            {% endif %}
+                            >{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                  </div>
+  
+                </div>
+                <!-- Form Row 2 -->
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <label class="sr-only">Bedrooms</label>
+                    <select name="kcal" class="form-control">
+
+                      <option selected="true">Kaloryczność</option>
+                      <!-- {% for key,value in product_kcal_choices.items %}
+                          <option value="{{ key }}">{{ value }}</option>
+                      {% endfor %} -->
+
+                    </select>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label class="sr-only">Autor</label>
+                    <input type="text" name="author" class="form-control" placeholder="Autor" 
+                    value="{{ values.author }}">
+                  </div>
+
+                </div>
+                <button class="btn btn-secondary btn-block mt-4" type="submit" style="margin-top: 0 !important; ">Szukaj</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
