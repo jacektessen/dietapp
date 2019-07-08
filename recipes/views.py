@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from django.contrib.auth.models import User
-from django.contrib import messages, auth
+# from django.contrib.auth.models import User
+from django.contrib import messages #, auth
 from django.db.models import Q
 
 from .models import Recipes

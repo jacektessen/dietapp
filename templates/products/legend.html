@@ -3,6 +3,7 @@
 {% block title %} | Legenda Produktów {% endblock %}
 
 {%  block content %}
+{% include 'partials/_alerts.html' %}
 <header style="text-align: center;">
 <h1>Znajdź indeks</h1>
 </header>
@@ -74,9 +75,8 @@
             </tr>
         {% endfor %}
     {% else %}
-        <tr>
-        <td>Dane niedostępne</td>
-        </tr>
+            <h6>Brakuje produktu?</h6>
+      <h4><strong><u><a href="{% url 'product_form' %}" >Dodaj nowy +</a></u></strong></h4>
     {% endif %}
 
     </tbody>

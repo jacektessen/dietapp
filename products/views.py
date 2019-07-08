@@ -1,5 +1,6 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.contrib import messages
 
 from .models import Products
 from .choices import (product_kcal_choices, product_protein_choices, 
@@ -103,4 +104,45 @@ def search2(request):
         'values': request.GET
     }
     return render(request, 'pages/search_products.html', context)
-    
+
+def product_form(request):
+    return render(request, 'products/product_form.html')
+
+def add_product(request):
+    if request.method == 'POST':
+        product = request.POST['product']
+        kcal = request.POST['kcal']
+        protein = request.POST['protein']
+        fat = request.POST['fat']
+        carbo = request.POST['carbo']
+        fibre = request.POST['fibre']
+        category = request.POST['category']
+        user_id = request.POST['user_id']
+        # photo_main = request.POST['photo_main']
+
+    if protein == '':
+        protein = 0
+    if fat == '':
+        fat = 0
+    if carbo == '':
+        carbo = 0
+    if fibre == '':
+        fibre = 0
+
+
+    send = Products(
+        product=product,
+        kcal=kcal,
+        protein=protein,
+        fat=fat,
+        carbo=carbo,
+        fibre=fibre,
+        category=category,
+        user_id=user_id,
+        # photo_main=photo_main,
+    )        
+
+    send.save()
+
+    messages.success(request, 'Produkt został dodany. Dziękuję!!!')
+    return redirect('legend')

@@ -4,6 +4,13 @@
 {%  block content %}
   
 <h1>Przepis wysłany, chyba...</h1>
+{% if k %}
+    {% for i in k %}
+    <p>{{ i }}</p>
+    {% endfor %}
+{% else %}
+<h1>Brakuje k</h1>
+{% endif %}
 
 {% endblock %}
 

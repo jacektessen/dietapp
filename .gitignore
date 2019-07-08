@@ -10,5 +10,4 @@ accounts/migrations/
 accounts/__init__.py
 contacts/migrations/
 contacts/__init__.py
-my_test/migrations/
-my_test/__init__.py
+/my_test/
