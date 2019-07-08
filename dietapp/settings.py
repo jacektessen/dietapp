@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
 # Application definition
 
 INSTALLED_APPS = [
+    'favourite.apps.FavouriteConfig',
     'my_test.apps.MyTestConfig',
     'contacts.apps.ContactsConfig',
     'accounts.apps.AccountsConfig',

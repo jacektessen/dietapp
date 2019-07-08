@@ -36,7 +36,7 @@
         <h2>Witaj {{ user.first_name }}</h2>
     <div class="container">
         <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             
             {% if contacts %}
             <p>Wiadomości, które do mnie przesłałeś</p>
@@ -54,7 +54,7 @@
                         <td>{{ contact.id }}</td>
                         <td>{{ contact.subject }}</td>
                         <td>
-                            <a class="btn btn-light" style="background-color: #91a33b"  href="{% url 'dashboard_message' contact.id %}">Zobacz treść</a>
+                            <a class="btn btn-secondary btn-sm" style="background-color: #91a33b"  href="{% url 'dashboard_message' contact.id %}">Zobacz</a>
                         </td>
                         </tr>
                     {% endfor %}
@@ -64,9 +64,9 @@
                 <p>Nie wysłałeś jeszcze żadnej wiadomości do mnie</p>
             {% endif %}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             {% if user_recipes %}
-            <p>Przepisy które dodałeś</p>
+            <p>Przepisy, które dodałeś</p>
                 <table class="table">
                 <thead>
                     <tr>
@@ -81,7 +81,34 @@
                         <td>{{ recipe.id }}</td>
                         <td>{{ recipe.name }}</td>
                         <td>
-                            <a class="btn btn-light" style="background-color: #91a33b"  href="{% url 'recipe' recipe.id %}">Zobacz przepis</a>
+                            <a class="btn btn-secondary btn-sm" style="background-color: #91a33b"  href="{% url 'recipe' recipe.id %}">Zobacz</a>
+                        </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            {% else %}
+                <p>Nie wprowadziłeś jeszcze żadnego przepisu</p>
+            {% endif %}
+        </div>
+        <div class="col-md-4">
+            {% if favourite_recipe %}
+            <p>Polubione przepisy</p>
+                <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Indeks</th>
+                    <th scope="col">Przepis</th>
+                    <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for recipe in favourite_recipe %}
+                        <tr>
+                        <td>{{ recipe.recipe.id }}</td>
+                        <td>{{ recipe.recipe.name }}</td>
+                        <td>
+                            <a class="btn btn-secondary btn-sm" style="background-color: #91a33b"  href="{% url 'recipe' recipe.recipe.id %}">Zobacz</a>
                         </td>
                         </tr>
                     {% endfor %}

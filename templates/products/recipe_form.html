@@ -133,13 +133,7 @@
         </div>
         </div>
           </div>
-          <div>
-              
-              <form action="{% url 'add_recipe' %}" method="POST">
-                  {% csrf_token %}
-                      <input type="hidden" name="user_id" value="{{ user.id }}">
-              </form>
-          </div>
+
         {% else %}
         <h2>Funkcja dostępna wyłącznie dla zalogowanych użytkowników</h2>
         {% endif %}

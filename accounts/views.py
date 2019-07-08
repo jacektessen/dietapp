@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from contacts.models import Contact
 from products.models import Products
 from recipes.models import Recipes
+from favourite.models import FavouriteRecipe
 
 def register(request):
     if request.method == 'POST':
@@ -63,11 +64,14 @@ def logout(request):
 def dashboard(request):
     user_contacts = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
     user_recipes = Recipes.objects.order_by('-recipe_date').filter(user_id=request.user.id)
-
+    favourite_recipe = FavouriteRecipe.objects.all().filter(user_id=request.user.id)
+    
     context = {
     'contacts': user_contacts,
-    'user_recipes': user_recipes
+    'user_recipes': user_recipes,
+    'favourite_recipe': favourite_recipe
     }
+    
     return render(request, 'accounts/dashboard.html', context)
 
 
