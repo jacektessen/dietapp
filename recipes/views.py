@@ -56,13 +56,6 @@ def add_recipe(request):
         ingredient_6 = request.POST['ingredient_6']
         # photo_main = request.POST['photo_main']
         # recipe_date = request.POST['recipe_date']
-
-        # if request.user.is_authenticated:
-        #     user_id = request.user.id
-        #     has_this_recipe = TestRecipes.objects.all().filter(name=name, user_id=user_id)
-        #     if has_this_recipe:
-        #         message.error(request, 'Wprowadziłeś już przepis o tej nazwie')
-        #         return redirect('test_recipes')
         
         if product_1_id == '':
             product_1_id = None
@@ -82,6 +75,16 @@ def add_recipe(request):
         if product_6_id == '':
             product_6_id = None
             ingredient_6 = 0
+
+        #  Check if recipe exist already
+        exist_name = Recipes.objects.all().filter(name=name)
+        exist_description = Recipes.objects.all().filter(description=description)
+        if exist_name:
+            messages.error(request, 'Przepis o takiej nazwie już istnieje')
+            return redirect('recipe_form')    
+        if exist_description:
+            messages.error(request, 'Identyczny przepis już istnieje')
+            return redirect('recipe_form')
 
 
         send = Recipes(

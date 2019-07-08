@@ -120,29 +120,35 @@ def add_product(request):
         user_id = request.POST['user_id']
         # photo_main = request.POST['photo_main']
 
-    if protein == '':
-        protein = 0
-    if fat == '':
-        fat = 0
-    if carbo == '':
-        carbo = 0
-    if fibre == '':
-        fibre = 0
+        if protein == '':
+            protein = 0
+        if fat == '':
+            fat = 0
+        if carbo == '':
+            carbo = 0
+        if fibre == '':
+            fibre = 0
+
+        #  Check if product exist already
+        exist = Products.objects.all().filter(product=product)
+        if exist:
+            messages.error(request, 'Produkt o takiej nazwie już istnieje')
+            return redirect('legend')
 
 
-    send = Products(
-        product=product,
-        kcal=kcal,
-        protein=protein,
-        fat=fat,
-        carbo=carbo,
-        fibre=fibre,
-        category=category,
-        user_id=user_id,
-        # photo_main=photo_main,
-    )        
+        send = Products(
+            product=product,
+            kcal=kcal,
+            protein=protein,
+            fat=fat,
+            carbo=carbo,
+            fibre=fibre,
+            category=category,
+            user_id=user_id,
+            # photo_main=photo_main,
+        )        
 
-    send.save()
+        send.save()
 
-    messages.success(request, 'Produkt został dodany. Dziękuję!!!')
-    return redirect('legend')
+        messages.success(request, 'Produkt został dodany. Dziękuję!!!')
+        return redirect('legend')
