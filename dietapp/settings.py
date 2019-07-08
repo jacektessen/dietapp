@@ -92,6 +92,9 @@ DATABASES = {
         'PASSWORD': 'dietapp1@',
         'HOST': 'mysql-635985.vipserv.org',
         'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 
