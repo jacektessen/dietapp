@@ -30,7 +30,7 @@ ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
 # ALLOWED_HOSTS = []
 
 
-Application definition
+# Application definition
 
 INSTALLED_APPS = [
     'my_test.apps.MyTestConfig',
