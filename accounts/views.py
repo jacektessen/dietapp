@@ -3,6 +3,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from contacts.models import Contact
 from products.models import Products
+from recipes.models import Recipes
 
 def register(request):
     if request.method == 'POST':
@@ -60,12 +61,14 @@ def logout(request):
         return redirect('index')
 
 def dashboard(request):
-  user_contacts = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
+    user_contacts = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
+    user_recipes = Recipes.objects.order_by('-recipe_date').filter(user_id=request.user.id)
 
-  context = {
-    'contacts': user_contacts
-  }
-  return render(request, 'accounts/dashboard.html', context)
+    context = {
+    'contacts': user_contacts,
+    'user_recipes': user_recipes
+    }
+    return render(request, 'accounts/dashboard.html', context)
 
 
 

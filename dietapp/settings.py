@@ -25,12 +25,12 @@ SECRET_KEY = 'z^ngaly2sx_3rbauuzr7folj7*#w!dv#sc(c!sw8e&ayr$0*x='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
+# ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
 
 # ALLOWED_HOSTS = []
 
 
-# Application definition
+Application definition
 
 INSTALLED_APPS = [
     'my_test.apps.MyTestConfig',
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
