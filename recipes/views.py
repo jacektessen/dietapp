@@ -26,8 +26,72 @@ def index(request):
 def recipe(request, recipe_id):
     recipe = Recipes.objects.get(id = recipe_id)
 
+    amt_1 = recipe.ingredient_1 / 100
+    amt_2 = recipe.ingredient_2 / 100
+    amt_3 = recipe.ingredient_3 / 100
+    amt_4 = recipe.ingredient_4 / 100
+    amt_5 = recipe.ingredient_5 / 100
+    amt_6 = recipe.ingredient_6 / 100
+
+    kcal_1 = recipe.product_1.kcal
+    kcal_2 = recipe.product_2.kcal
+    kcal_3 = recipe.product_3.kcal
+    kcal_4 = recipe.product_4.kcal
+    kcal_5 = recipe.product_5.kcal
+    kcal_6 = recipe.product_6.kcal
+
+    total_kcal = ((kcal_1 * amt_1) + (kcal_2 * amt_2) + (kcal_3 * amt_3) + (kcal_4 * amt_4) + (kcal_5 * amt_5) + (kcal_6 * amt_6))
+    total_kcal = round(total_kcal, 1)
+
+    protein_1 = float(recipe.product_1.protein)
+    protein_3 = float(recipe.product_3.protein)
+    protein_2 = float(recipe.product_2.protein)
+    protein_4 = float(recipe.product_4.protein)
+    protein_5 = float(recipe.product_5.protein)
+    protein_6 = float(recipe.product_6.protein)
+
+    total_protein_p = ((protein_1 * amt_1) + (protein_2 * amt_2) + (protein_3 * amt_3) + (protein_4 * amt_4) + (protein_5 * amt_5) + (protein_6 * amt_6))
+    total_protein = round(total_protein_p, 1)
+
+    fat_1 = float(recipe.product_1.fat)
+    fat_3 = float(recipe.product_3.fat)
+    fat_2 = float(recipe.product_2.fat)
+    fat_4 = float(recipe.product_4.fat)
+    fat_5 = float(recipe.product_5.fat)
+    fat_6 = float(recipe.product_6.fat)
+
+    total_fat_p = ((fat_1 * amt_1) + (fat_2 * amt_2) + (fat_3 * amt_3) + (fat_4 * amt_4) + (fat_5 * amt_5) + (fat_6 * amt_6))
+    total_fat = round(total_fat_p, 1)
+
+    carbo_1 = float(recipe.product_1.carbo)
+    carbo_3 = float(recipe.product_3.carbo)
+    carbo_2 = float(recipe.product_2.carbo)
+    carbo_4 = float(recipe.product_4.carbo)
+    carbo_5 = float(recipe.product_5.carbo)
+    carbo_6 = float(recipe.product_6.carbo)
+
+    total_carbo_p = ((carbo_1 * amt_1) + (carbo_2 * amt_2) + (carbo_3 * amt_3) + (carbo_4 * amt_4) + (carbo_5 * amt_5) + (carbo_6 * amt_6))
+    total_carbo = round(total_carbo_p, 1)
+
+    fibre_1 = float(recipe.product_1.fibre)
+    fibre_3 = float(recipe.product_3.fibre)
+    fibre_2 = float(recipe.product_2.fibre)
+    fibre_4 = float(recipe.product_4.fibre)
+    fibre_5 = float(recipe.product_5.fibre)
+    fibre_6 = float(recipe.product_6.fibre)
+
+    total_fibre_p = ((fibre_1 * amt_1) + (fibre_2 * amt_2) + (fibre_3 * amt_3) + (fibre_4 * amt_4) + (fibre_5 * amt_5) + (fibre_6 * amt_6))
+    total_fibre = round(total_fibre_p, 1)
+    
+
+
     context = {
         'recipe': recipe,
+        'total_kcal': total_kcal,
+        'total_protein': total_protein,
+        'total_fat': total_fat,
+        'total_carbo': total_carbo,
+        'total_fibre': total_fibre
     }
 
     return render(request, 'products/recipe.html', context)
@@ -58,22 +122,22 @@ def add_recipe(request):
         # recipe_date = request.POST['recipe_date']
         
         if product_1_id == '':
-            product_1_id = None
+            product_1_id = 1
             ingredient_1 = 0
         if product_2_id == '':
-            product_2_id = None
+            product_2_id = 1
             ingredient_2 = 0
         if product_3_id == '':
-            product_3_id = None
+            product_3_id = 1
             ingredient_3 = 0
         if product_4_id == '':
-            product_4_id = None
+            product_4_id = 1
             ingredient_4 = 0
         if product_5_id == '':
-            product_5_id = None
+            product_5_id = 1
             ingredient_5 = 0
         if product_6_id == '':
-            product_6_id = None
+            product_6_id = 1
             ingredient_6 = 0
 
         #  Check if recipe exist already

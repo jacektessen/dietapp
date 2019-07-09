@@ -3,15 +3,16 @@
 {% block title %} | {{ recipe.name }} {% endblock %}
 {%  block content %}
 <main>
-{% include 'partials/_alerts.html' %}		
+{% include 'partials/_alerts.html' %}
+<header>					
+        <h1>Wybrany przepis</h1>
+</header>		
 	<section class="home">			
-		<div class="container">				
-			<header>					
-					<h1>Wybrany przepis</h1>
-            </header>
+		<div class="container">	
+            <div class="row">			
 
             {% if recipe %}
-                <div style="color: black; font-size: 125%; text-align: left;">
+                <div style="color: black; font-size: 125%; text-align: left;" class="col-md-6">
                     <section >
                         {% if user.is_authenticated %}
                             <form action="{% url 'add_favourite_recipe' recipe.id %}" method="POST">
@@ -27,25 +28,27 @@
                         <strong>Kategoria:</strong> {{ recipe.category }}<br/>
                         <strong>Autor:</strong> {{ recipe.author }}<br/>
                         <strong>Przepis:</strong> {{ recipe.description }}<br/>
+                        {% if recipe.product_1.is_active == 1 %}
                         <strong>Składnik 1:</strong> {{ recipe.product_1 }}<br/>
                         <strong>Ilość 1:</strong> {{ recipe.ingredient_1 }} gramów<br/>
-                        {% if recipe.product_2 %}
+                        {% endif %}
+                        {% if recipe.product_2.is_active == 1 %}
                         <strong>Składnik 2:</strong> {{ recipe.product_2 }}<br/>
                         <strong>Ilość 2:</strong> {{ recipe.ingredient_2 }} gramów<br/>
                         {% endif %}
-                        {% if recipe.product_3 %}
+                        {% if recipe.product_3.is_active == 1 %}
                         <strong>Składnik 3:</strong> {{ recipe.product_3 }}<br/>
                         <strong>Ilość 3:</strong> {{ recipe.ingredient_3 }} gramów<br/>
                         {% endif %}
-                        {% if recipe.product_4 %}
+                        {% if recipe.product_4.is_active == 1 %}
                         <strong>Składnik 4:</strong> {{ recipe.product_4 }}<br/>
                         <strong>Ilość 4:</strong> {{ recipe.ingredient_4 }} gramów<br/>
                         {% endif %}
-                        {% if recipe.product_5 %}
+                        {% if recipe.product_5.is_active == 1 %}
                         <strong>Składnik 5:</strong> {{ recipe.product_5 }}<br/>
                         <strong>Ilość 5:</strong> {{ recipe.ingredient_5 }} gramów<br/>
                         {% endif %}
-                        {% if recipe.product_6 %}
+                        {% if recipe.product_6.is_active == 1 %}
                         <strong>Składnik 6:</strong> {{ recipe.product_6 }}<br/>
                         <strong>Ilość 6:</strong> {{ recipe.ingredient_6 }} gramów<br/>
                         {% endif %}
@@ -60,7 +63,27 @@
             {% else %}
                 <h1>No Recipes Available</h1>
             {% endif %}
-            
+            <div style="color: black; font-size: 115%; text-align: left;" class="col-md-6">
+                <section>
+                <br/><br/>
+                {% if total_kcal %}
+                    <strong>Kalorie: </strong>{{ total_kcal }}<br/>
+                {% endif %}
+                {% if total_protein %}
+                    <strong>Białko: </strong>{{ total_protein }}<br/>
+                {% endif %}
+                {% if total_fat %}
+                    <strong>Tłuszcz: </strong>{{ total_fat }}<br/>
+                {% endif %}
+                {% if total_carbo %}
+                    <strong>Węglowodany: </strong>{{ total_carbo }}<br/>
+                {% endif %}
+                {% if total_fibre %}
+                    <strong>Błonnik: </strong>{{ total_fibre }}<br/>
+                {% endif %}
+                </section>
+            </div>
+            </div>
         </div>
     </section>
 </main>   

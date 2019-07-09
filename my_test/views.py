@@ -9,11 +9,13 @@ def test_form(request):
 
 
 def test_fill(request):
-    total = TestRecipes()
-    k = total.kcal_total
+    total = TestRecipes.objects.all()
+    x = TestRecipes.objects.get(product_test_1=1)
+    kcal = (x.product_test_1.kcal + 2)
     
     context = {
-        'k': k
+        'total': total,
+        'kcal': kcal
     }
     return render(request, 'my_test/test_recipes.html', context)
    
