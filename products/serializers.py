@@ -5,5 +5,5 @@ class ProductsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Products
-        # fields = '__all__' - jeśli wszystkie pola
-        fields = ('product', 'kcal', 'protein', 'fat', 'carbo', 'fibre')
+        # fields = '__all__' # - jeśli wszystkie pola
+        fields = ('id', 'url', 'product', 'kcal', 'protein', 'fat', 'carbo', 'fibre')

@@ -2,6 +2,13 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.contrib import messages
 
+# from rest_framework.views import APIView
+# from rest_framework.response import Response
+# from rest_framework import status
+from .serializers import ProductsSerializer
+# from rest_framework import generics
+from rest_framework import viewsets
+
 from .models import Products
 from .choices import (product_kcal_choices, product_protein_choices, 
                     product_category_choices, product_carbo_choices, 
@@ -152,3 +159,29 @@ def add_product(request):
 
         messages.success(request, 'Produkt został dodany. Dziękuję!!!')
         return redirect('legend')
+
+#######PIERWSZ PRÓBA######################################################
+# REST
+# class ProductsList(APIView):
+
+#     def get(self, request):
+#         products = Products.objects.all()
+#         serializer = ProductsSerializer(products, many=True)
+#         return Response(serializer.data)
+
+#     def post(self):
+#         pass
+#######DRUGA PRÓBA#######################################################
+# class ProductsList(generics.ListCreateAPIView):
+#     queryset = Products.objects.all()
+#     serializer_class = ProductsSerializer
+
+# class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Products.objects.all()
+#     serializer_class = ProductsSerializer
+
+# https://www.youtube.com/watch?v=263xt_4mBNc
+
+class ProductsView(viewsets.ModelViewSet):
+    queryset = Products.objects.all()
+    serializer_class = ProductsSerializer
