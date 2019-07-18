@@ -1,0 +1,112 @@
+{% extends "base.html" %} 
+
+{% block title %} | Nowy Przepis {% endblock %}
+{%  block content %}
+{% include 'partials/_alerts.html' %}
+{% if name %}
+Istnieje {{ part_2.recipe_id }}<br/>
+Nazwa {{ name }}<br/>
+Opis {{ description }}<br/>
+Category {{ category }}
+{% else %}
+Nie Istnieje
+{% endif %}
+
+<main>		
+	<section class="home">			
+		<div class="container">				
+			<header>					
+					<h1>Nowy przepis</h1>
+      </header>
+        <!-- Inquiry Modal -->
+     
+      {% if user.is_authenticated %}
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inquiryModalLabel">Napisz przepis</h5>
+          <!-- <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button> -->
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'add_products_to_recipe' %}" method="POST">
+              {% csrf_token %}
+                <input type="hidden" name="user_id" value="{{ user.id }}">
+                <input type="hidden" name="recipe_id" value="{{ recipe_id }}">
+                <div class="form-group">
+                    <label for="name" class="col-form-label">Nazwa: </label>
+                    <input type="text" name="name" class="form-control" value="{{ name }}">
+                </div>
+                <div class="form-group">
+                    <label for="category" class="col-form-label">Kategoria: </label>
+                    <input type="text" name="category" class="form-control" value="{{ category }}">
+                </div>
+                    <div class="form-group">
+                    <label for="author" class="col-form-label">Autor: </label>
+                    <input type="text" name="author" class="form-control" value="{{ user.username }}">
+                </div>
+                    <div class="form-group">
+                    <label for="description" class="col-form-label">Przepis: </label>
+                    <textarea rows="10" type="text" name="description" class="form-control" {{ description }}>{{ description }}</textarea>
+                </div>
+                <p>
+                        <u><a href="{% url 'legend' %}" 
+                            onclick="window.open('{% url 'legend' %}', 
+                                                    'newwindow', 
+                                                    'width=300,height=900'); 
+                                    return false;"
+                            
+                            >Legenda indeksów</a></u><br/>
+                            (podaj tylko indeks produktu, ilość w gramach)
+                </p>
+                <br/>
+                <input type="submit" value="Dodaj składnik" class="btn btn-secondary btn-sm">
+                <div class="form-row">
+                    <div class="form-row">
+                        {% if part_2 %}
+                            {% for content in part_2 %}
+                
+                                <div class="col-md-2">
+                                    <label for="product_id" class="col-form-label">Produkt:</label>
+                                    <input type="number" name="product_id" class="form-control" value="{{ content.product_id }}">
+                                </div>                 
+                                <div class="col-md-2">
+                                    <label for="ingredient" class="col-form-label">Ilość: </label>
+                                    <input type="number" name="ingredient" class="form-control" value="{{ content.ingredient }}">
+                                </div>
+                            
+                            {% endfor %}
+                        {% endif %}    
+
+                                <div class="col-md-2">
+                                    <label for="product_id" class="col-form-label">Produkt:</label>
+                                    <input type="number" name="product_id" class="form-control">
+                                </div>                 
+                                <div class="col-md-2">
+                                    <label for="ingredient" class="col-form-label">Ilość: </label>
+                                    <input type="number" name="ingredient" class="form-control">
+                                </div>
+
+                <hr>
+                <input type="submit" value="Wyślij" class="btn btn-block btn-secondary"
+                formaction="{% url 'add_recipe_finish' %}">
+                <div></div>
+
+                
+            </form>   
+                 
+        </div>
+        </div>
+          </div>
+
+        {% else %}
+        <h2>Funkcja dostępna wyłącznie dla zalogowanych użytkowników</h2>
+        {% endif %}
+      </section>
+      
+  </main>
+  
+  
+  
+{% endblock %}
+

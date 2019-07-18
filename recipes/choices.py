@@ -1,5 +1,5 @@
 recipe_kcal_choices = {
-   'very low'   : 'do 50',
+   'very_low'   : 'do 50',
    'low'        : '50-150',
    'medium'     : '150-300',
    'quite_high' : '300-500',
@@ -8,9 +8,9 @@ recipe_kcal_choices = {
 }
 
 recipe_category_choices = {
-    'śniadanie': 'śniadanie',
+    'sniadanie': 'śniadanie',
     'lunch': 'lunch',
-    'przekąska': 'przekąska',
+    'przekaska': 'przekąska',
     'obiad': 'obiad',
     'kolacja': 'kolacja',
     'deser': 'deser',

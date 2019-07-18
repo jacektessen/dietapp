@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+<!-- {% extends "base.html" %} 
 
 {% block title %} | Kontakt {% endblock %}
 {%  block content %}
@@ -6,13 +6,32 @@
 <h1>Przepis wysłany, chyba...</h1>
 
 
-{% if kcal %}
+{% if total %}
 
-<p><strong>kcal 1: {{ kcal }}</strong></p>
+<strong>ID: {{ total.id }}</strong><br/>
+<strong>Nazwa: {{ total.name }}</strong><br/>
+<strong>User: {{ total.user_id }}</strong><br/>
 
 {% else %}
-<h1>Brakuje k</h1>
+<h1>Brakuje total</h1>
 {% endif %}
 
-{% endblock %}
+{% if product %}
+{% for x in product %}
 
+<strong>Składnik numer: {{ x.id }}</strong><br/>
+<strong>Produkt: {{ x.product }}</strong><br/>
+<strong>kcal: {{ x.product.kcal }}</strong><br/>
+<strong>Ilość: {{ x.ingredient }}</strong><br/>
+{% endfor %}
+{% else %}
+<h1>Brakuje product</h1>
+{% endif %}
+<br/><br/><br/>
+{% if sum %}
+
+{{ sum }}<br/>
+
+{% endif %}
+{% endblock %}
+ -->

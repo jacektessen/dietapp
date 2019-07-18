@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'rest_framework',
     'comments.apps.CommentsConfig',
+    'multiselectfield',
+
 ]
 
 MIDDLEWARE = [

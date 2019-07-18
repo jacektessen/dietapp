@@ -27,31 +27,14 @@
                         <strong>Nazwa:</strong> {{ recipe.name }}<br/>
                         <strong>Kategoria:</strong> {{ recipe.category }}<br/>
                         <strong>Autor:</strong> {{ recipe.author }}<br/>
-                        <strong>Przepis:</strong> {{ recipe.description }}<br/>
-                        {% if recipe.product_1.is_active == 1 %}
-                        <strong>Składnik 1:</strong> {{ recipe.product_1 }}<br/>
-                        <strong>Ilość 1:</strong> {{ recipe.ingredient_1 }} gramów<br/>
+                        <strong>Przepis:</strong> {{ recipe.description }}<br/><br/>
+                        {% if products %}
+                            {% for product in products %}
+                                <strong>Składnik:</strong> {{ product.product }}<br/>
+                                <strong>Ilość:</strong> {{ product.ingredient }} gramów<br/>
+                            {% endfor %}
                         {% endif %}
-                        {% if recipe.product_2.is_active == 1 %}
-                        <strong>Składnik 2:</strong> {{ recipe.product_2 }}<br/>
-                        <strong>Ilość 2:</strong> {{ recipe.ingredient_2 }} gramów<br/>
-                        {% endif %}
-                        {% if recipe.product_3.is_active == 1 %}
-                        <strong>Składnik 3:</strong> {{ recipe.product_3 }}<br/>
-                        <strong>Ilość 3:</strong> {{ recipe.ingredient_3 }} gramów<br/>
-                        {% endif %}
-                        {% if recipe.product_4.is_active == 1 %}
-                        <strong>Składnik 4:</strong> {{ recipe.product_4 }}<br/>
-                        <strong>Ilość 4:</strong> {{ recipe.ingredient_4 }} gramów<br/>
-                        {% endif %}
-                        {% if recipe.product_5.is_active == 1 %}
-                        <strong>Składnik 5:</strong> {{ recipe.product_5 }}<br/>
-                        <strong>Ilość 5:</strong> {{ recipe.ingredient_5 }} gramów<br/>
-                        {% endif %}
-                        {% if recipe.product_6.is_active == 1 %}
-                        <strong>Składnik 6:</strong> {{ recipe.product_6 }}<br/>
-                        <strong>Ilość 6:</strong> {{ recipe.ingredient_6 }} gramów<br/>
-                        {% endif %}
+                        <br/>
                         
                         <strong>Data dodania:</strong> {{ recipe.recipe_date }}<br/>
                         {% if recipe.photo_main %}
