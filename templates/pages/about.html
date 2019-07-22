@@ -1,4 +1,5 @@
 {% extends "base.html" %} 
+{% load static %}
 
 {% block title %} | O Nas {% endblock %}
 
@@ -7,9 +8,53 @@
 	<section class="home">			
 		<div class="container">				
 			<header>					
-					<h1>O nas - czyli o mnie i o Was!</h1>
+					<h1>Parę słów o mnie</h1>
+
+					
             </header>
         </div>
-    </section>
+	</section>
+	
+	<section>
+		
+			<p class="h5 font-weight-normal" align="justify" >
+					<img src="{% static 'img/jacek.jpg' %}" width="336" height="357" class="rounded float-right" style="border: 30px solid transparent;">
+					
+					Hej!<br/>
+					Jestem inżynierem mechatroniki z pięcioipółletnim doświadczeniem jako Inżynier Sprzedaży 
+					systemów i urządzeń pneumatycznych/próżniowych, który jest właśnie w trakcie przebranżowienia się w kierunku 
+					Python Developer.<br/>
+					Stronę Dietapp przygotowuję w celu:<br/>
+					  - utrwalania i ćwiczenia zdobytej samodzielnie wiedzy,<br/>
+					  - przedstawienia zakresu opanowanego materiału,<br/>
+					  - dla własnej satysfakcji.<br/>
+					Pełny kod Git znajdziesz na moim koncie bitbucket <a href="https://bitbucket.org/jacektessen/dietapp/src/master/"><strong><u>TUTAJ</u></strong></a><br/><br/>
+					Pracując w BIBUS MENOS w Gdańsku, zdobyłem bardzo wartościowe doświadczenie w zakresie umiejętności związanych m.in. z:<br/> 
+					  - wpółpracą B2B z klientami i dostawcami zagranicznymi,<br/>
+					  - efektywną współpracą w dużej grupie,<br/>
+					  - radzeniem sobie ze stresem w przypadku krótkich deadline'ów oraz związaną z tym priorytetyzacją zadań,<br/>
+					  - prezentacją i tłumaczeniem klientowi przygotowanego rozwiązania,<br/>
+					  - prowadzeniem szkoleń.<br/>
+					Brakowało mi jednak odpowiedniego poziomu złożoności zadań, szczególnie od strony technicznej. W trakcie studiów, przez 4 lata, udzielałem korepetycji z 
+					matematyki na poziomie akademickim. Korzystanie z gotowych tabel w katalogach nie spełniało moich ambicji analitycznych. W związku z tym, będąc zainspirowany 
+					przez mojego przyjaciela, na początku maja rozpocząłem naukę programowania.<br/><br/>
+					Poniżej przygotowałem wykaz umiejętności, które wykorzystałem przygotowując stronę Dietapp:<br/>
+					  - Python 3.7.4.<br/>
+					  - Django 2.2, Django REST framework,<br/>
+					  - HTML5, CSS3, Bootstrap 4,<br/>
+					  - Jinja 2,<br/>
+					  - MySQL,<br/>
+					  - Visual Studio Code,<br/>
+					  - Git.<br/><br/>
+					  Obecnie mieszkam we Wrocławiu, ale jestem otwarty na relokację. <br/>
+					  Jeśli uważasz, że jest miejsce dla mnie w Twojej firmie, lub po prostu, chcesz mi dać
+					  wskazówki np. co powinienem poprawić, jakie tematy priorytetowo przerobić lub polecić firmę, z przyjemnością z Tobą porozmawiam.<br/><br/>
+					  Pozdrawiam<br/>
+					  Jacek Tessen-Węsierski<br/>
+					  
+					  <br/><br/>
+
+				</p>
+	</section>
 </main>    
 {% endblock %}

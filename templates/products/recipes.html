@@ -1,4 +1,5 @@
 {% extends "base.html" %} 
+{% load static %}
 {% load humanize %}
 {% block title %} | Przepisy {% endblock %}
 
@@ -14,11 +15,13 @@
     <br/>
   </main>
 
-<h4><strong><u><a href="{% url 'recipe_form' %}" >Dodaj nowy +</a></u></strong></h4>
+<a href="{% url 'recipe_form' %}" >
+    <img class="" src="{% static 'img/ADD.png' %}" alt="" width="100" height="100"/>
+</a>
 <main>		
 	<section class="home">			
 		<div class="container">				
-			<section style="color: black; font-size: 80%;">
+			<section>
 
 <!-- Tabela przepisów -->
 {% include 'partials/_table_recipes.html' %}   
@@ -48,7 +51,6 @@
                   <a class="page-link">&raquo;</a>
                 </li>
               {% endif %}            
-              <!-- ??????????????????????-->              
               {% for i in recipes.paginator.page_range %}
                 {% if recipes.number == i %}
                   <li class="page-item active">

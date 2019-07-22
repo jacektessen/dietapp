@@ -9,7 +9,7 @@ from products.choices import (
     product_fat_choices,
 )
 
-from recipes.choices import recipe_category_choices, recipe_kcal_choices
+from recipes.choices import recipe_category_choices
 
 
 def index(request):
@@ -21,7 +21,6 @@ def index(request):
         'product_carbo_choices': product_carbo_choices,
         'product_fat_choices': product_fat_choices,
         'recipe_category_choices': recipe_category_choices,
-        # 'recipe_kcal_choices': recipe_kcal_choices,
     }
 
     return render(request, 'pages/index.html', context)

@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
 # Application definition
 
 INSTALLED_APPS = [
+    'schedule.apps.ScheduleConfig',
     'favourite.apps.FavouriteConfig',
     'my_test.apps.MyTestConfig',
     'contacts.apps.ContactsConfig',
@@ -149,7 +150,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-# from django.contrib.auth.models import User
-from django.contrib import messages #, auth
+from django.contrib import messages
 from django.db.models import Q
 
 from .models import Recipes, Ingredients
 from products.models import Products
-from .choices import recipe_kcal_choices, recipe_category_choices
+from .choices import recipe_category_choices
 
 def index(request):
     recipes = Recipes.objects.order_by('-recipe_date')
@@ -17,7 +16,6 @@ def index(request):
 
     context = {
         'recipes': paged_recipes,
-        'recipe_kcal_choices': recipe_kcal_choices,
         'recipe_category_choices': recipe_category_choices
     }
 
@@ -62,7 +60,11 @@ def recipe(request, recipe_id):
     return render(request, 'products/recipe.html', context)
 
 def recipe_form(request):
-    return render(request, 'products/recipe_form.html')
+
+    context = {
+        'recipe_category_choices': recipe_category_choices
+    }
+    return render(request, 'products/recipe_form.html', context)
 
 def add_recipe(request):
     if request.method == 'POST':
@@ -166,7 +168,7 @@ def add_recipe_finish(request):
 def legend(request):
     queryset_list = Products.objects.all()
 
-    # Keywords w kolumnie nazwy produktu
+
     if 'keywords' in request.GET:
         keywords = request.GET['keywords']
         if keywords:
@@ -180,31 +182,17 @@ def legend(request):
 def search1(request):
     queryset_list = Recipes.objects.all()
 
-    # Keywords przepisu w kolumnie nazwy przepisu
     if 'keywords_recipes' in request.GET:
         keywords_recipes = request.GET['keywords_recipes']
         if keywords_recipes:
             queryset_list = queryset_list.filter(name__icontains=keywords_recipes)
 
-    # Keywords produktu w kolumnie nazwy przepisu
-    if 'keywords_products' in request.GET:
-        keywords_products = request.GET['keywords_products']
-        if keywords_products:
-            queryset_list = queryset_list.filter(Q(product_1_id=keywords_products) |
-                                                Q(product_2_id=keywords_products) |
-                                                Q(product_3_id=keywords_products) |
-                                                Q(product_4_id=keywords_products) |
-                                                Q(product_5_id=keywords_products) |
-                                                Q(product_6_id=keywords_products)
-                                                )
 
-    # Category
     if 'category' in request.GET:
         category = request.GET['category']
         if category != 'Kategoria':
             queryset_list = queryset_list.filter(category__iexact=category)
 
-    # Category
     if 'author' in request.GET:
         author = request.GET['author']
         if author:
@@ -212,7 +200,6 @@ def search1(request):
 
     context = {
         'recipe_category_choices': recipe_category_choices,
-        # 'recipe_kcal_choices': recipe_kcal_choices,
         'recipes': queryset_list,
         'values': request.GET
     }

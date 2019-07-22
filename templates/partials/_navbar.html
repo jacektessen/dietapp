@@ -20,7 +20,7 @@
                 >				
                     <a class="nav-link" href="{% url 'index' %}" >HOME</a>				
                 </li>				
-                <li 
+                <!-- <li 
                     {% if 'opis' in request.path %}
                     class="nav-item dropdown nav-item active"
                     {% elif 'instrukcja' in request.path %}
@@ -44,7 +44,7 @@
                         
                         </div>
                 
-                </li>				
+                </li>				 -->
                 <li
                     {% if 'about' in request.path %}
                     class="nav-item active"
@@ -52,7 +52,7 @@
                     class="nav-item"
                     {% endif %}          
                 >				
-                    <a class="nav-link" href="{% url 'about' %}" >O NAS</a>				
+                    <a class="nav-link" href="{% url 'about' %}" >O MNIE</a>				
                 </li>	
                 <li
                     {% if 'bmi' in request.path %}
@@ -81,7 +81,7 @@
                 >								
                     <a class="nav-link" href="{% url 'products' %}" >PRODUKTY</a>				
                 </li>				
-                <li
+                <!-- <li
                     {% if 'wspolpraca' in request.path %}
                     class="nav-item active"
                     {% else %}
@@ -89,7 +89,7 @@
                     {% endif %}          
                 >							
                     <a class="nav-link" href="{% url 'cooperation' %}" >WSPÓŁPRACA</a>				
-                </li>			
+                </li>			 -->
                 <li
                     {% if 'kontakt' in request.path %}
                     class="nav-item active"
@@ -107,7 +107,7 @@
                         class="nav-item"
                         {% endif %}
                     >
-                        <a class="nav-link" href="{% url 'dashboard' %}" >Witaj {{ user.username }} (Panel)</a>
+                        <a class="nav-link" href="{% url 'dashboard' %}" >KONTO</a>
                     </li>
                     <li class="nav-item mr-3">
                         <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">

@@ -44,25 +44,21 @@ def product(request, product_id):
 def search2(request):
     queryset_list = Products.objects.all()
 
-    # Keywords w kolumnie nazwy produktu
     if 'keywords' in request.GET:
         keywords = request.GET['keywords']
         if keywords:
             queryset_list = queryset_list.filter(product__icontains=keywords)
 
-    # Category
     if 'category' in request.GET:
         category = request.GET['category']
         if category != 'Kategoria':
             queryset_list = queryset_list.filter(category__iexact=category)
 
-    # Kcal
     if 'kcal' in request.GET:
         kcal = request.GET['kcal']
         if kcal != 'Max. kaloryczność':
             queryset_list = queryset_list.filter(kcal__lte=kcal)
 
-    # Protein
     if 'protein' in request.GET:
         protein = request.GET['protein']
         if protein != 'Białko':
@@ -75,7 +71,6 @@ def search2(request):
             else:
                 queryset_list = queryset_list.filter(protein__gte=30)
 
-    # Carbo
     if 'carbo' in request.GET:
         carbo = request.GET['carbo']
         if carbo != 'Węglowodany':
@@ -88,7 +83,6 @@ def search2(request):
             else:
                 queryset_list = queryset_list.filter(carbo__gte=50)
 
-    # Fat
     if 'fat' in request.GET:
         fat = request.GET['fat']
         if fat != 'Tłuszcz':
@@ -160,25 +154,6 @@ def add_product(request):
         messages.success(request, 'Produkt został dodany. Dziękuję!!!')
         return redirect('legend')
 
-#######PIERWSZ PRÓBA######################################################
-# REST
-# class ProductsList(APIView):
-
-#     def get(self, request):
-#         products = Products.objects.all()
-#         serializer = ProductsSerializer(products, many=True)
-#         return Response(serializer.data)
-
-#     def post(self):
-#         pass
-#######DRUGA PRÓBA#######################################################
-# class ProductsList(generics.ListCreateAPIView):
-#     queryset = Products.objects.all()
-#     serializer_class = ProductsSerializer
-
-# class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Products.objects.all()
-#     serializer_class = ProductsSerializer
 
 # https://www.youtube.com/watch?v=263xt_4mBNc
 

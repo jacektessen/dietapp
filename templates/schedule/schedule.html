@@ -1,0 +1,13 @@
+{% load static %}
+<h1>Schedule test</h1>
+
+{% if schedule %}
+{% for recipe in schedule %}
+<p>
+    Posiłek o {{ recipe.when }}<br/>
+    {{ recipe.recipe.name }}<br/>
+    Część pełnej procji {{ recipe.portion }}<br/>
+</p>
+{% endfor %}
+{% endif %}
+<img src="{% static 'img/jacek.jpg' %}" width="300" height="200" align="right">

@@ -10,6 +10,14 @@ accounts/migrations/
 accounts/__init__.py
 contacts/migrations/
 contacts/__init__.py
-/my_test/
-dietapp/settings.py
 comments/migrations/
+static/rest_framework/
+htmlcov/
+
+recipes/tests/
+schedule/tests/
+products/tests/
+favourite/tests/
+
+
+

@@ -1,10 +1,14 @@
+html {
+    height: 100%;
+}
+
 body {
-    background-color: rgb(227, 251, 145);
-    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(155, 238, 141);
     font-size: 15px;
     max-width: 1200px;
     margin: 0 auto;
     margin-top: 4rem;
+    height: 100%;
 }
 
 h1 {
@@ -26,25 +30,8 @@ header p {
 
 }
 
-/* .10 {
-    margin: 0 auto;
-    padding: 0;
-} */
-
 .home {
     text-align: center;
-}
-
-.home p {
-    margin-bottom: 30px;
-}
-
-.home figcaption {
-    margin-top: 8px;
-}
-
-.navbar {
-    min-height: 57px;
 }
 
 .bg-jumpers
@@ -68,29 +55,17 @@ header p {
     margin: 0 auto;
 }
 
-/*
-.bmi_tabela {
-    border: 2px solid black;
-    display: block;
-    margin-inline-start: 2px;
-    margin-inline-end: 2px;
-    padding-block-start: 0.35em;
-    padding-inline-start: 0.75em;
-    padding-inline-end: 0.75em;
-    padding-block-end: 0.625em;
-    min-inline-size: min-content;
-}
-*/
 .display-4 {
     font-size: 36px;
     font-weight: 400;
     color: #91a33b;
     margin: 20px;
 }
-/*
-.display-4 {
-    font-size: 3.5rem;
-    font-weight: 300;
-    line-height: 1.2;
-}
-*/
+
+footer {
+    background-color: #30caa0;
+    color: black;
+    text-align: center;
+    width:100%;
+  }
+
