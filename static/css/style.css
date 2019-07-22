@@ -1,9 +1,14 @@
+html {
+    height: 100%;
+}
+
 body {
     background-color: rgb(155, 238, 141);
     font-size: 15px;
     max-width: 1200px;
     margin: 0 auto;
     margin-top: 4rem;
+    height: 100%;
 }
 
 h1 {
@@ -56,4 +61,11 @@ header p {
     color: #91a33b;
     margin: 20px;
 }
+
+footer {
+    background-color: #30caa0;
+    color: black;
+    text-align: center;
+    width:100%;
+  }
 
