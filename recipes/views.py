@@ -102,12 +102,14 @@ def add_recipe(request):
         send_part_1.save()
 
         recipe_id = send_part_1.pk
+        product_name = Products.objects.all()
 
         context = {
             'recipe_id': recipe_id,
             'name': name, 
             'category': category, 
             'description': description,
+            'product_name': product_name
         }
  
         return render(request, 'products/recipe_form_add_products.html', context)
@@ -135,13 +137,15 @@ def add_products_to_recipe(request):
         send_part_2.save()
 
         part_2 = Ingredients.objects.all().filter(recipe_id=recipe_id)
+        product_name = Products.objects.all()
 
         context = {
             'part_2': part_2,
             'name': name, 
             'category': category, 
             'description': description,
-            'recipe_id': recipe_id
+            'recipe_id': recipe_id,
+            'product_name': product_name
         }
 
         return render(request, 'products/recipe_form_add_products.html', context) 
