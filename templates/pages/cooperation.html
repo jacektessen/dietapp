@@ -1,16 +1,89 @@
 {% extends "base.html" %} 
 {% load static %}
-{% block title %} | Współpraca {% endblock %}
+{% block title %} | O Stronie {% endblock %}
 
 {%  block content %}
 <main>		
 	<section class="home">			
 		<div class="container">				
 			<header>					
-					<h1>Współpraca</h1>
+					<h1>Co zawiera strona Dietapp</h1>
             </header>
         </div>
-    </section>
+	</section>
+	<section>
+		<p>
+				1. Epik - Stworzenie szablonu strony z zastosowaniem podstawowych funkcji bootstrap<br/>
+				- szablon strony razem oraz przypisanie bibliotek związanych z bootstrap<br/>
+				- pasek nawigacyjny navbar razem z potencjalnymi zakładkami<br/>
+				- wstępne logo<br/>
+				- strona główna<br/>
+				<br/>
+			   2. Epik - projekt dietapp we frameworku django i umieszczenie tam Strony<br/>
+				- projekt dietapp w django<br/>
+				- umieszczenie całości przygotowanej w poprzednim kroku w dietapp<br/>
+				- wyświetlanie podstawowych stron html i przypisanie im odpowiednich ścieżek url<br/>
+				- stworzenie szablonu, który jest wykorzystywany dynamicznie <br/>
+			   (szablon składa się z plików html: base, _navbar, _footer oraz _alerts + właściwy plik zawierający content właściwy dla wybranej strony)<br/>
+				- zmiana serwera w MySQL<br/>
+				<br/>
+			   3. Epik - model Produkty<br/>
+				- model Products wraz z migracją na serwer<br/>
+				- import danych do Modelu<br/>
+				- admin ma możliwość odczytu, dodawania, usuwania i edycji danych<br/>
+				- na stronie jest możliwość odczytu całego Modelu oraz można przejść oddzielnie do pojedynczej pozycji<br/>
+				<br/>
+			   4. Epik - model Przepisy<br/>
+				-  model Recipes w którym produkty są wybierane z bazy Products<br/>
+				- wszystkie pozostałe kroki jak w Epik 3<br/>
+				<br/>
+			   5. Epik - funkcja wyszukiwania produktów i przepisów<br/>
+				- wyszukiwarka na głównej stronie html oraz na stronach produkty i przepisy<br/>
+				- możliwość wyszukiwania produktu wg: keywords, kategorii, kaloryczności i zawartości białka, węglowodanów oraz tłuszczu<br/>
+				- możliwość wyszukiwania przepisu wg: keywords, kategorii, oraz autora<br/>
+				- po wybraniu parametrów wyszukiwania zostają one nadal w wyszukiwarce po wyświetleniu wyników  <br/>
+				<br/>
+			   6. Epik - Rejestracja użytkownika i logowanie.<br/>
+				- użytkownik może się zarejestrować <br/>
+				- użytkownik może się logować<br/>
+				- po zalogowaniu navbar zmienia zakładki z LOGIN na Panel oraz Logout<br/>
+				- po zalogowaniu użytkownik jest przekierowany do panelu użytkownika<br/>
+				- po zalogowaniu i wylogowaniu użytkownikowi wyświetla się komunikat success lub error w zależności czy wprowadził prawidłowe dane<br/>
+				<br/>
+			   7. Epik - Formularz kontaktowy<br/>
+				- stworzenie modelu Contacts<br/>
+				- w zakładce KONTAKT użytkownik może wysłać wiadomość do administratora Strony<br/>
+				- zalogowany użytkownik ma automatycznie wypełnione pole Name i Email <br/>
+				- wiadomość trafia na skrzynkę pocztową gmail oraz wyświetla się komunikat, że wiadomość została wysłana a użytkownik zostaje przekierowany do strony głównej<br/>
+				- jeśli użytkownik jest zalogowany, wraz z formularzem zostaje wysłane id użytkownika<br/>
+				- jeśli użytkownik jest zalogowany i wyśle dokładnie tą samą wiadomość, zostanie powiadomiony, że już wysłał taką wiadomość oraz formularz nie zostanie wysłany<br/>
+				<br/>
+			   8. Epik - Personalizacja panelu użytkownika<br/>
+				- wyświetlają się wiadomości wysłane przez formularz KONTAKT <br/>
+				- wyświetlają się przepisy które użytkownik dodał<br/>
+				- wyświetlają się przepisy które użytkownik zaznaczył, że chce mieć w swoim panelu<br/>
+				<br/>
+			   9. Epik - Dodawanie produktów<br/>
+				- funkcja jest dostępna dla zalogowanych użytkowników<br/>
+				- pole Autor wypełnia się automatycznie<br/>
+				- nowy produkt można dodać na stronie legenda gdy okaże się, że nie ma potrzebnego produktu podczas dodawania nowego przepisu<br/>
+				- jeśli w bazie będzie już produkt o tej samej nazwie użytkownik dostanie komunikat error i produkt nie zostanie dodany<br/>
+				- nowa pozycja ma przypisany user_id<br/>
+				- jeśli produkt zostanie dodany, po dodaniu użytkownik zostanie przekierowany z powrotem do legendy<br/>
+				<br/>
+			   10. Epik - Dodawanie przepisów<br/>
+				- funkcja jest dostępna dla zalogowanych użytkowników <br/>
+				- pole Autor wypełnia się automatycznie<br/>
+				- produkt dodawany jest z rozwijanej listy, która pobierana jest z bazy danych wszystkich produktów <br/>
+				- można dodać dowolną ilość produktów<br/>
+				- po stworzeniu przepisu użytkownik zostaje przekierowany do bazy przepisów oraz pojawia się komunikat success.<br/>
+				- jeśli w bazie będzie już przepis o tej samej nazwie lub opisie użytkownik dostanie komunikat error i przepis nie zostanie dodany<br/>
+				- nowa pozycja ma przypisany user_id<br/>
+				<br/>
+				11. Epik - W przepisie wartości kalorie, białko, węglowodany, tłucze wprowadzonych produktów się sumują i zsumowany wynik wyświetla się na stronie przepisu.
+			   
+		</p>
+	</section>
 </main>
 
 {% endblock %}

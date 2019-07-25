@@ -55,6 +55,15 @@
                     <a class="nav-link" href="{% url 'about' %}" >O MNIE</a>				
                 </li>	
                 <li
+                    {% if 'wspolpraca' in request.path %}
+                    class="nav-item active"
+                    {% else %}
+                    class="nav-item"
+                    {% endif %}          
+                >							
+                    <a class="nav-link" href="{% url 'cooperation' %}" >O STRONIE</a>				
+                </li>			
+                <li
                     {% if 'bmi' in request.path %}
                     class="nav-item active"
                     {% else %}
