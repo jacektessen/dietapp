@@ -6,43 +6,51 @@
 {%  block content %}
 <main>		
 	<section class="home" style="text-align: left;">			
-		<div class="container">	
-			<header>
-                    <h1>Calculator BMI</h1>
-            </header>
-                <div style="width: 500px; margin: 0;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="inquiryModalLabel">Kalculator BMI</h5>
+            </div>
+            
+                <div class="modal-body">
                     <form action="#" method="get">
-                    <fieldset class="bmi_tabela">
-                        <legend  style="color: red;"><strong>Twoje wartości</strong></legend>
-                        <label for="weight" style="color: red; display: block; width: 100px; float: left; text-align: right; margin: 10px 5px; clear: left;"> Waga [kg]: </label>
-                        <input type="number" name="weight" id="weight"  style="vertical-align: middle; margin: 10px 5px;"/>
-                        <br/>
-                        <label for="height" style="color: red; display: block; width: 100px; float: left; text-align: right; margin: 10px 5px; clear: left;">Wzrost [cm]: </label>
-                        <input type="number" name="height" id="height"  style="vertical-align: middle; margin: 10px 5px;"/>
-                        <br/>
-                        <button type="button" onclick="bmi()" style="color: red"> Oblicz BMI </button>
-                    </fieldset>
-                        <br/>
-                    <fieldset >
-                        <legend style="color: red;"><strong>Wyniki</strong></legend>
-                        <table style="width: 200px; margin: 0;">
-                        <tr>
-                            <th style="margin: 0; padding: 0;"><p style="color: red;">Wynik BMI: </p></th>
-                            <th style="margin: 0; padding: 0;"><div id="bmi_result"></div></th> <!--bgcolor="orange"-->
-                        </tr>
-                        <tr>
-                            <th><p style="color: red;">Oznacza on: </p></th>
-                            <th><div id="comment" style="background-color:lightblue;"></div></th>
-                        </tr>
-                        </table>
-                    </fieldset>
+                        <div class="col-md-3 mb-3">
+                            <legend><strong>Twoje wartości</strong></legend>
+                            <label for="weight"  class="col-form-label"> Waga [kg]: </label>
+                            <input type="number" name="weight" id="weight"  class="form-control">
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="height"  class="col-form-label">Wzrost [cm]: </label>
+                            <input type="number" name="height" id="height"  class="form-control">
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="bmi()"> Oblicz BMI </button>
+                        </div>
                     </form>
-                    
-                <script src="{% static 'js/bmi_calc.js' %}"></script> 
-            </div>     
+                </div>
+            
+            
+                <div class="modal-body">
+                    <div class="col-md-3 mb-3">
+                        <legend ><strong>Wyniki</strong></legend>
+                        <table class="table">
+                            <tr>
+                                <th>Wynik BMI:</th>
+                                <th><div class="display-4" id="bmi_result"></div></th>
+                            </tr>
+                            <tr>
+                                <th>Oznacza on:</th>
+                                <th><div class="display-4" id="comment"></div></th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            
         </div>
     </section>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/>
     
-</main>    
+</main>   
+
+<script src="{% static 'js/bmi_calc.js' %}"></script> 
+
 {% endblock %}

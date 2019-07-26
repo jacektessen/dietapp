@@ -3,32 +3,28 @@ html {
 }
 
 body {
-    background-color: rgb(155, 238, 141);
+    background-color:white;
     font-size: 15px;
     max-width: 1200px;
     margin: 0 auto;
     margin-top: 4rem;
     height: 100%;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
     font-size: 36px;
     font-weight: 400;
-    color: #91a33b;
     margin: 20px;
 }
 
 #header_index {
-    color: #91a33b;
     margin-left: 30px;
     margin-top: 70px;
     font-size: 50px;
 }
 
-header p {
-    color: red;
 
-}
 
 .home {
     text-align: center;
@@ -42,7 +38,6 @@ header p {
 }
 
 .recipe {
-    color: #91a33b;
     font-size: 25px;
     height: 100%;
     display: flex;
@@ -58,7 +53,6 @@ header p {
 .display-4 {
     font-size: 36px;
     font-weight: 400;
-    color: #91a33b;
     margin: 20px;
 }
 
