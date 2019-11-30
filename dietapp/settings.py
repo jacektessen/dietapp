@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from django.contrib.messages import constants as messages
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -90,35 +91,35 @@ WSGI_APPLICATION = 'dietapp.wsgi.application'
 
 # My external db
 
-DATABASES = {
-    'default': {
-        'NAME': 'boryczko_dietapp',
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'boryczko_dietapp',
-        'PASSWORD': 'dietapp1@',
-        'HOST': 'mysql-635985.vipserv.org',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
-    }
-}
-
-# My local db
-
 # DATABASES = {
 #     'default': {
-#         'NAME': 'boryczko_db',
+#         'NAME': 'boryczko_dietapp',
 #         'ENGINE': 'django.db.backends.mysql',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',
+#         'USER': 'boryczko_dietapp',
+#         'PASSWORD': 'dietapp1@',
+#         'HOST': 'mysql-635985.vipserv.org',
 #         'PORT': '3306',
 #         'OPTIONS': {
 #             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
 #         },
 #     }
 # }
+
+# My local db
+
+DATABASES = {
+    'default': {
+        'NAME': 'boryczko_db',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -156,7 +157,7 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_ROOT= os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'dietapp/static')
@@ -170,7 +171,6 @@ MEDIA_URL = '/media/'
 # Messages
 # https://docs.djangoproject.com/en/2.2/ref/contrib/messages/
 
-from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
@@ -191,3 +191,4 @@ REST_FRAMEWORK = {
     ]
 }
 
+ALLOWED_HOSTS = ['198.211.99.20', 'localhost', '127.0.0.1']
