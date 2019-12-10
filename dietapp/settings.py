@@ -34,9 +34,7 @@ ALLOWED_HOSTS = ["dietapp.jacektessen.pl"]
 # Application definition
 
 INSTALLED_APPS = [
-    'schedule.apps.ScheduleConfig',
     'favourite.apps.FavouriteConfig',
-    'my_test.apps.MyTestConfig',
     'contacts.apps.ContactsConfig',
     'accounts.apps.AccountsConfig',
     'products.apps.ProductsConfig',
@@ -89,21 +87,7 @@ WSGI_APPLICATION = 'dietapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# My external db
-
-# DATABASES = {
-#     'default': {
-#         'NAME': 'boryczko_dietapp',
-#         'ENGINE': 'django.db.backends.mysql',
-#         'USER': 'boryczko_dietapp',
-#         'PASSWORD': 'dietapp1@',
-#         'HOST': 'mysql-635985.vipserv.org',
-#         'PORT': '3306',
-#         'OPTIONS': {
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         },
-#     }
-# }
+##########################################
 
 # My local db
 
@@ -120,6 +104,8 @@ DATABASES = {
         },
     }
 }
+######################################
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

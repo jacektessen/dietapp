@@ -1,26 +1,3 @@
-# *.pyc*.log
-# *.pot
-# *.pyc
-# __pycache__/
-# local_settings.py
-# recipes/migrations/
-# products/migrations/
-# pages/migrations/
-# accounts/migrations/
-# accounts/__init__.py
-# contacts/migrations/
-# contacts/__init__.py
-# comments/migrations/
-# static/rest_framework/
-# htmlcov/
-# venv/
-
-# recipes/tests/
-# schedule/tests/
-# products/tests/
-# favourite/tests/
-
-# from gitignore template
 
 # Created by https://www.gitignore.io/api/django
 # Edit at https://www.gitignore.io/?templates=django
@@ -143,6 +120,3 @@ dmypy.json
 .pyre/
 
 # End of https://www.gitignore.io/api/django
-
-
-

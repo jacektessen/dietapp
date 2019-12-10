@@ -11,7 +11,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('contacts/', include('contacts.urls')),
-    path('my_test/', include('my_test.urls')),
     path('ulubione/', include('favourite.urls')),
-    path('dieta/', include('schedule.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
